@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\stdafx.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\stdafx.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\targetver.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  BerlinRenderer.cpp
+c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\berlinrenderer.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderer\BerlinRenderer\Debug\BerlinRenderer.exe
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderer\BerlinRenderer\Debug\BerlinRenderer.pdb (Partial PDB)
