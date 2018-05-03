@@ -13,6 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\brb">
+      <UniqueIdentifier>{0a94e3d4-0b22-4cfc-be06-70f1cd1f24cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\glad">
+      <UniqueIdentifier>{6ed74c34-0f07-40b1-9d9a-97c08e87f16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\KHR">
+      <UniqueIdentifier>{1014869b-cdcf-47c1-99d3-6e22e4ebbaf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\test">
+      <UniqueIdentifier>{6d5f1efa-b523-4931-bc7e-e9a5fa50f32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\test">
+      <UniqueIdentifier>{eac869b1-9245-4ecd-8ba7-d70bafe39b18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\model">
+      <UniqueIdentifier>{4237f869-39a6-4f59-bfa4-9014b88277d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\texture">
+      <UniqueIdentifier>{ec216c19-0535-4440-a3c3-17d049b3aa07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,12 +45,45 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\glad\glad.h">
+      <Filter>头文件\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="include\KHR\khrplatform.h">
+      <Filter>头文件\KHR</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleDrawer.h">
+      <Filter>头文件\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderBuilder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="BerlinRenderer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="BerlinRenderer.cpp">
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleDrawer.cpp">
+      <Filter>源文件\test</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderBuilder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

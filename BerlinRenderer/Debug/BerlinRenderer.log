@@ -1,8 +1,13 @@
-﻿  stdafx.cpp
-c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\stdafx.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\stdafx.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\targetver.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+﻿  TriangleDrawer.cpp
+c:\githubprojects\berlinrenderbeauty\berlinrenderer\stdafx.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\githubprojects\berlinrenderbeauty\berlinrenderer\targetver.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ShaderBuilder.cpp
+  Mesh.cpp
   BerlinRenderer.cpp
-c:\githubprojects\berlinrenderer\berlinrenderer\berlinrenderer\berlinrenderer.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderer\BerlinRenderer\Debug\BerlinRenderer.exe
-  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderer\BerlinRenderer\Debug\BerlinRenderer.pdb (Partial PDB)
+c:\githubprojects\berlinrenderbeauty\berlinrenderer\berlinrenderer.cpp(2): warning C4005: “GLEW_STATIC”: 宏重定义
+  c:\githubprojects\berlinrenderbeauty\berlinrenderer\berlinrenderer.cpp(2): note: 命令行参数: 参见前面的“GLEW_STATIC”定义
+  正在生成代码...
+  glad.c
+glew32sd.lib(glew.obj) : warning LNK4099: 未找到 PDB“glew_static.pdb”(使用“glew32sd.lib(glew.obj)”或在“C:\GitHubProjects\BerlinRenderBeauty\Debug\glew_static.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderBeauty\Debug\BerlinRenderer.exe
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderBeauty\Debug\BerlinRenderer.pdb (Partial PDB)
