@@ -34,6 +34,54 @@
     <Filter Include="资源文件\texture">
       <UniqueIdentifier>{ec216c19-0535-4440-a3c3-17d049b3aa07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{840989b3-54ee-4c4f-9313-33fc116bd392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Base">
+      <UniqueIdentifier>{4dd17522-60a1-4b66-a03c-b7ce9d0c9949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Base\Header Files">
+      <UniqueIdentifier>{c1786772-aa11-43e0-a94e-b46bc39ae9a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Base\Soucre Files">
+      <UniqueIdentifier>{905a34a5-003f-44c8-8075-770d41b28021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\App">
+      <UniqueIdentifier>{4addcbc9-58a1-493a-abb0-7ca8d179306b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\App\Header Files">
+      <UniqueIdentifier>{ad7196a3-1a5e-432b-ad62-132fbf6f7779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\App\Source Files">
+      <UniqueIdentifier>{474a5aa2-44ad-4f64-a55b-e8ae2b5115b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Render System">
+      <UniqueIdentifier>{54d8f419-8b1d-49c3-8491-d2b4ff7b2c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Render System\Header Files">
+      <UniqueIdentifier>{be7c4ac7-0235-4e2b-9413-1694f67b6a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Render System\Source Files">
+      <UniqueIdentifier>{80face51-28ad-4d39-9f61-7a268f53c199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resource Management">
+      <UniqueIdentifier>{b1e4fcb2-64af-41e3-920e-0f210c034256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resource Management\Header Files">
+      <UniqueIdentifier>{2657cb2c-7a2a-4257-b043-79f3a8db0ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resource Management\Source Files">
+      <UniqueIdentifier>{1828d0e0-dcc9-4817-ac03-86a28739843a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Scene Management">
+      <UniqueIdentifier>{f888c933-855b-4f6e-9d5e-3178090f7104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Scene Management\Header Files">
+      <UniqueIdentifier>{5185a487-fc6c-4247-8718-6c437cc946a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Scene Management\Source Files">
+      <UniqueIdentifier>{7dc2b691-70f7-45b9-b21d-9cebaa48d654}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,6 +117,33 @@
     <ClInclude Include="Mesh.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Core\App\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreDeclare.h">
+      <Filter>Core\Base\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Core\Base\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine.h">
+      <Filter>Core\Render System\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Core\Render System\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Core\Scene Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Core\Scene Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Core\Resource Management\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Core\Render System\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BerlinRenderer.cpp">
@@ -85,6 +160,30 @@
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="APP.cpp">
+      <Filter>Core\App\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Core\Base\Soucre Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine.cpp">
+      <Filter>Core\Render System\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Core\Render System\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObject.cpp">
+      <Filter>Core\Scene Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Core\Scene Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Core\Resource Management\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Core\Render System\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
