@@ -26,7 +26,7 @@ struct Vertex {
 struct Texture {
 	GLuint id;
 	string type;
-	aiString path;
+	string path;
 };
 
 class Mesh {

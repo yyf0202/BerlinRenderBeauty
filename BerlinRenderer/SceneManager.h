@@ -15,8 +15,6 @@ namespace BRE {
 	public:
 		SceneManager();
 		virtual ~SceneManager();
-
-
 	};
 }
 #endif
