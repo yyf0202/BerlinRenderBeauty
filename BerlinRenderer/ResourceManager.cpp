@@ -10,6 +10,8 @@
 namespace BRE {
 	ResourceManager::ResourceManager()
 	{
+		glm::mat4x4 mat;
+	
 	}
 
 
@@ -25,7 +27,7 @@ namespace BRE {
 		if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) // if is Not Zero
 		{
 			cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << endl;
-			return;
+			return NULL;
 		}
 
 		this->directory = path.substr(0, path.find_last_of('/'));

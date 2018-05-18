@@ -28,10 +28,6 @@ namespace BRE {
 
 	}
 
-	void Context::Suspend() {
-
-	}
-
 	void Context::Resume() {
 
 	}
