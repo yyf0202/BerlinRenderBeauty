@@ -30,11 +30,16 @@ namespace BRE {
 
 		RenderablePtr const & GetRenderable() const;
 		Mesh const & GetMeshData() const;
+
+		
 	protected:
 		SceneObject* parent_;
 		std::vector<SceneObjectPtr> children_;
 		RenderablePtr renderable_;
 		Mesh mesh_data;
+		uint32_t object_id_;
+		glm::mat4 local_matrix_;
+		glm::mat4 abs_matrix_;
 	};
 
 }

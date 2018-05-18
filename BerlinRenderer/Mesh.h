@@ -23,7 +23,8 @@ struct Vertex {
 	glm::vec2 TexCoords;
 };
 
-struct Texture {
+class Texture {
+public:
 	GLuint id;
 	string type;
 	string path;
@@ -38,6 +39,10 @@ public:
 
 	/*  Functions  */
 	// Constructor
+	Mesh() : vertices(0), indices(0),textures(0)
+	{
+
+	}
 	Mesh(vector<Vertex> vertices, vector<GLuint> indices, vector<Texture> textures)
 	{
 		this->vertices = vertices;
