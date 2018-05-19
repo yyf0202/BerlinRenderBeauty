@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BerlinRenderer", "BerlinRenderer\BerlinRenderer.vcxproj", "{2A06062F-5D73-458B-9910-921E7C90D7D8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tester", "Tester\Tester.vcxproj", "{6AA3620D-1AE6-41DA-9C75-A9CE4BC59FE8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2A06062F-5D73-458B-9910-921E7C90D7D8} = {2A06062F-5D73-458B-9910-921E7C90D7D8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
