@@ -38,8 +38,8 @@ namespace BRE {
 		glm::vec3 up_vec_;
 		glm::mat4 view_matrix_;
 		glm::mat4 project_matrix_;
-		float aspect;
-		float fov;
+		float aspect_;
+		float fov_;
 		float near_z_;
 		float far_z_;
 	};
