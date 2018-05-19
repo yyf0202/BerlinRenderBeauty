@@ -4,8 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "ResourceManager.h"
+#include <BerlinRenderer\Resources\ResourceManager.h>
 
 namespace BRE {
 	ResourceManager::ResourceManager()

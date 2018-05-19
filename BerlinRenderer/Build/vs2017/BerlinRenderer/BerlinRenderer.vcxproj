@@ -23,7 +23,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2A06062F-5D73-458B-9910-921E7C90D7D8}</ProjectGuid>
     <RootNamespace>BerlinRenderer</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -135,11 +135,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Config.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Config.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Context.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\PreDeclare.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Utils.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

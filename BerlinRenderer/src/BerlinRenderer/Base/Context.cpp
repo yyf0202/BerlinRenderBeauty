@@ -4,8 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include "Context.h"
-#include "Utils.h"
+#include <BerlinRenderer\Base\Context.h>
 #include <memory>
 
 namespace BRE {

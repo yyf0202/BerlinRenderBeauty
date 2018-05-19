@@ -4,7 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include "Renderer.h"
+#include <BerlinRenderer\Render\Renderer.h>
 
 
 namespace BRE {

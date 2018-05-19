@@ -4,11 +4,9 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#ifndef _APP_H
-#define _APP_H
 #pragma once
-#include "PreDeclare.h"
-#include "Context.h"
+#include <BerlinRenderer\Base\PreDeclare.h>
+#include <BerlinRenderer\Base\Context.h>
 #include <string>
 
 namespace BRE {
@@ -36,4 +34,3 @@ namespace BRE {
 		GLFWwindow* glWindow_;
 	};
 }
-#endif

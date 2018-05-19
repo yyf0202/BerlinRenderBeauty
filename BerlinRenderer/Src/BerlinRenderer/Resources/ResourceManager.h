@@ -6,7 +6,7 @@
 #ifndef _RESOURCEMANAGER_H
 #define _RESOURCEMANAGER_H
 #pragma once
-#include "Mesh.h"
+#include <BerlinRenderer\Render\Mesh.h>
 #include <SOIL.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>

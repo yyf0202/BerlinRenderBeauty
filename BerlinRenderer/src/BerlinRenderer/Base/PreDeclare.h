@@ -4,8 +4,6 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#ifndef _PREDECLARE_H
-#define _PREDECLARE_H
 #pragma once
 #include <boost/noncopyable.hpp>
 #include <memory>
@@ -22,4 +20,3 @@ namespace BRE {
 	class Renderable;
 	typedef std::shared_ptr<Renderable> RenderablePtr;
 }
-#endif

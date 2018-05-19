@@ -4,7 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include "Camera.h"
+#include <BerlinRenderer\Render\Camera.h>
 
 namespace BRE {
 	Camera::Camera()

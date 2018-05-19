@@ -4,7 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include "App.h"
+#include <BerlinRenderer\App\App.h>
 
 namespace BRE {
 	App::App(std::string const & name)

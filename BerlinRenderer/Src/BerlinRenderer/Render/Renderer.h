@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 
 #pragma once
-#include "PreDeclare.h"
+#include <BerlinRenderer\Base\PreDeclare.h>
 
 namespace BRE {
 	class Renderer :boost::noncopyable

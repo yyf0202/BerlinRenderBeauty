@@ -7,11 +7,12 @@
 #ifndef _CONTEXT_H
 #define _CONTEXT_H
 #pragma once
-#include "PreDeclare.h"
-#include "RenderEngine.h"
-#include "ResourceManager.h"
-#include "SceneManager.h"
-#include "App.h"
+#include <BerlinRenderer\Base\PreDeclare.h>
+#include <BerlinRenderer\Render\RenderEngine.h>
+#include <BerlinRenderer\Resources\ResourceManager.h>
+#include <BerlinRenderer\Scene Manager\SceneManager.h>
+#include <BerlinRenderer\App\App.h>
+#include <BerlinRenderer\Base\Utils.h>
 
 namespace BRE {
 	class Context : boost::noncopyable

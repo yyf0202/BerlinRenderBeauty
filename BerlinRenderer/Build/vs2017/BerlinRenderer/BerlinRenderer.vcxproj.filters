@@ -4,9 +4,38 @@
     <Filter Include="Render">
       <UniqueIdentifier>{6f3039d7-ebe5-4d9a-9a4f-eb59c2230ae9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{2751592f-c097-4428-b58c-9a79a7f98167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{3e8ac116-a928-4b99-a4ec-caed51092009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene Manager">
+      <UniqueIdentifier>{a4b61f04-7884-4667-b0f7-337838d36f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{86f2d1cd-8517-44d5-bb6d-310d1bb56c01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp">
+      <Filter>Scene Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp">
       <Filter>Render</Filter>
     </ClCompile>
   </ItemGroup>
@@ -14,7 +43,38 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Config.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Context.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\PreDeclare.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Utils.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Config.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h">
+      <Filter>Scene Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
+      <Filter>Scene Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h">
+      <Filter>Scene Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h">
+      <Filter>Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
