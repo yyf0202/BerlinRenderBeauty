@@ -6,9 +6,10 @@
 #ifndef _SCENEOBJECT_H
 #define _SCENEOBJECT_H
 #pragma once
-#include "PreDeclare.h"
+#include <BerlinRenderer\Base\PreDeclare.h>
+#include <BerlinRenderer\Base\Context.h>
+#include <BerlinRenderer\Render\mesh.h>
 #include <vector>
-#include "Mesh.h"
 
 namespace BRE {
 
@@ -31,7 +32,12 @@ namespace BRE {
 		RenderablePtr const & GetRenderable() const;
 		Mesh const & GetMeshData() const;
 
-		
+		void LocalMatrix(glm::mat4 const& localMatrix);
+		const glm::mat4& GetLocalMatrix() const;
+
+		void WorldMatrix(glm::mat4 const& worldMatrix);
+		const glm::mat4& GetWorldMatrix() const;
+		void UpdateWorldMatrix();
 	protected:
 		SceneObject* parent_;
 		std::vector<SceneObjectPtr> children_;

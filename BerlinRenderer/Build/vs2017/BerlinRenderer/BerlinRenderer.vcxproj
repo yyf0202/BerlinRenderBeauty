@@ -143,6 +143,8 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
@@ -158,6 +160,8 @@
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

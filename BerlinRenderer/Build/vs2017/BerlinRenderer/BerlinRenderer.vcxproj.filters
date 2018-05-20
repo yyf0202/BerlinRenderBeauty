@@ -29,14 +29,20 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp">
       <Filter>Base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp">
-      <Filter>Scene Manager</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp">
       <Filter>App</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp">
       <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.cpp">
+      <Filter>Scene Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.cpp">
+      <Filter>Scene Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,17 +69,21 @@
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Config.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h">
-      <Filter>Scene Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
-      <Filter>Scene Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h">
-      <Filter>Scene Manager</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h">
       <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h">
+      <Filter>Scene Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.h">
+      <Filter>Scene Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

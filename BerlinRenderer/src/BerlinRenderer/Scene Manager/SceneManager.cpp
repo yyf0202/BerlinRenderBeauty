@@ -3,14 +3,34 @@
 //
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
-#include "SceneManager.h"
+#include <BerlinRenderer\Scene Manager\SceneManager.h>
 
-namespace BRE{
+namespace BRE {
 	SceneManager::SceneManager() {
-	
+
 	}
 
 	SceneManager::~SceneManager() {
+
+	}
+
+
+	void SceneManager::AddSceneObject(SceneObjectPtr const & obj) {
+		scene_objs_.push_back(obj);
+	}
+
+	void SceneManager::DelSceneObject(SceneObjectPtr const & obj) {
+		for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
+		{
+			if (*iter == obj)
+			{
+				scene_objs_.erase(iter);
+				break;
+			}
+		}
+	}
+
+	void SceneManager::Update() {
 
 	}
 }

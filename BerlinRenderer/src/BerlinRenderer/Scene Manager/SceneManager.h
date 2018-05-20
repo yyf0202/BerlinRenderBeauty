@@ -7,7 +7,8 @@
 #ifndef _SCENEMANAGER_H
 #define _SCENEMANAGER_H
 #pragma once
-#include "PreDeclare.h"
+#include <BerlinRenderer\Base\PreDeclare.h>
+#include <vector>
 
 namespace BRE {
 	class SceneManager : boost::noncopyable
@@ -15,6 +16,14 @@ namespace BRE {
 	public:
 		SceneManager();
 		virtual ~SceneManager();
+
+		void AddSceneObject(SceneObjectPtr const & obj);
+		void DelSceneObject(SceneObjectPtr const & obj);
+
+		void Update();
+
+	private:
+		std::vector<SceneObjectPtr> scene_objs_;
 	};
 }
 #endif
