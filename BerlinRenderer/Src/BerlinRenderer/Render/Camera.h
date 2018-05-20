@@ -16,9 +16,10 @@ namespace BRE {
 		void SetProjectionParams(float fov, float aspect, float nearZ, float farZ);
 		void SetViewParams(glm::vec3 const& cameraPos, glm::vec3 const& lookatPos);
 		void SetViewParams(glm::vec3 const& cameraPos, glm::vec3 const& lookatPos, glm::vec3 const& upVec);
-
 		void SetCameraPos(glm::vec3 const& cameraPos);
 		void LookAt(glm::vec3 const& lookatPos);
+		glm::mat4 const& GetViewMatrix();
+		glm::mat4 const& GetProjectionMatrix();
 
 		float Fov();
 		float Aspect();
@@ -42,5 +43,7 @@ namespace BRE {
 		float fov_;
 		float near_z_;
 		float far_z_;
+
+		void UpdateViewProjMatri();
 	};
 }

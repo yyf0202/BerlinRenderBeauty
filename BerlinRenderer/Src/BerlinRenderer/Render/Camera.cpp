@@ -23,7 +23,7 @@ namespace BRE {
 		this->near_z_ = nearZ;
 		this->far_z_ = farZ;
 
-
+		this->UpdateViewProjMatri();
 	}
 
 	void Camera::SetViewParams(glm::vec3 const& cameraPos, glm::vec3 const& lookatPos) {
@@ -34,16 +34,53 @@ namespace BRE {
 		this->pos_ = cameraPos;
 		this->target_pos_ = lookatPos;
 		this->forward_ = glm::normalize(lookatPos - cameraPos);
+		this->right_ = glm::normalize(glm::cross(this->forward_, upVec));
+		this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
 
-		this->right_ = glm::cross(this->forwar_, upVec);
+		this->UpdateViewProjMatri();
+	}
+
+	void Camera::UpdateViewProjMatri() {
+		this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
+		this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);
 	}
 
 	void Camera::SetCameraPos(glm::vec3 const& cameraPos) {
-
+		this->pos_ = cameraPos;
+		this->target_pos_ = cameraPos + this->forward_;
+		this->UpdateViewProjMatri();
 	}
 
 	void Camera::LookAt(glm::vec3 const& lookatPos) {
+		this->target_pos_ = lookatPos;
+		this->forward_ = glm::normalize(lookatPos - this->pos_);
+		this->right_ = glm::normalize(glm::cross(this->forward_, glm::vec3(0, 1, 0)));
+		this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
+		this->UpdateViewProjMatri();
+	}
 
+	glm::mat4 const&  Camera::GetViewMatrix() {
+		return this->view_matrix_;
+	}
+
+	glm::mat4 const& Camera::GetProjectionMatrix() {
+		return this->project_matrix_;
+	}
+
+	glm::vec3 const& Camera::cameraPos() {
+		return this->pos_;
+	}
+
+	glm::vec3 const& Camera::Forward() {
+		return this->forward_;
+	}
+
+	glm::vec3 const& Camera::Right() {
+		return this->right_;
+	}
+
+	glm::vec3 const& Camera::Up() {
+		this->up_;
 	}
 
 	float Camera::Fov() {
