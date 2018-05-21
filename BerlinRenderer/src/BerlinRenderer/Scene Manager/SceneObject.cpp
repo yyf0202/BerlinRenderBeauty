@@ -90,5 +90,4 @@ namespace BRE {
 	Mesh const & SceneObject::GetMeshData() const {
 		return this->mesh_data;
 	}
-
 }

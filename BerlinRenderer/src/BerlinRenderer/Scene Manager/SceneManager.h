@@ -20,10 +20,14 @@ namespace BRE {
 		void AddSceneObject(SceneObjectPtr const & obj);
 		void DelSceneObject(SceneObjectPtr const & obj);
 
+		void AddCamera(CameraPtr const & camera);
+		void DelCamera(CameraPtr const & camera);
+
 		void Update();
 
 	private:
 		std::vector<SceneObjectPtr> scene_objs_;
+		std::vector<CameraPtr> cameras_;
 	};
 }
 #endif

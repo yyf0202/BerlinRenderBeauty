@@ -19,4 +19,8 @@ namespace BRE {
 
 	class Renderable;
 	typedef std::shared_ptr<Renderable> RenderablePtr;
+
+	class Camera;
+	typedef std::shared_ptr<Camera> CameraPtr;
+
 }

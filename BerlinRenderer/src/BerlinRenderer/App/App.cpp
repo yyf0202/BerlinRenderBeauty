@@ -67,6 +67,7 @@ namespace BRE {
 
 	void App::Run() {
 		RenderEngine& re = Context::Instance().RenderEngineInstance();
+		SceneManager& sm = Context::Instance().SceneManagerInstance();
 
 		while (!glfwWindowShouldClose(glWindow_))
 		{
