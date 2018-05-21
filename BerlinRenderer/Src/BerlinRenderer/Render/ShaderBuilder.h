@@ -1,7 +1,8 @@
 #pragma once
-#include "stdafx.h"
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+
+#include <BerlinRenderer/Base/Config.h>
+
+NS_RENDER_BEGIN
 
 class ShaderBuilder
 {
@@ -34,3 +35,5 @@ ShaderBuilder::~ShaderBuilder()
 {
 
 }
+
+NS_RENDER_END

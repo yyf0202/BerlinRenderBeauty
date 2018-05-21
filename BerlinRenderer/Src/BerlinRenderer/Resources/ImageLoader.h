@@ -1,6 +1,5 @@
 #pragma once
-#include "soil.h"
-
+#include <soil.h>
 
 enum
 {
@@ -11,29 +10,19 @@ enum
 	TEXTURE_RGBA = 4
 };
 
-class ImageLoader {
+#include <BerlinRenderer/Base/Config.h>
+
+NS_RENDER_BEGIN
+
+class Texture2D;
+
+class ImageLoader
+{
 public:
 	static ImageLoader& getInstance();
 	ImageLoader();
 	~ImageLoader();
-	unsigned char* Load(char* path, int width, int height, int format);
+	Texture2D* Load(string_t path, int32_t width, int32_t height, int32_t format);
 };
 
-ImageLoader::ImageLoader() {
-
-}
-
-ImageLoader::~ImageLoader() {
-
-}
-
-ImageLoader& ImageLoader::getInstance()
-{
-	static ImageLoader instance;
-	return instance;
-}
-
-unsigned char* ImageLoader::Load(char* path, int width, int height, int format) {
-	return SOIL_load_image(path, &width, &height, 0, SOIL_LOAD_RGB);
-
-}
+NS_RENDER_END

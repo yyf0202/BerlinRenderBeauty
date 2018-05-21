@@ -5,32 +5,35 @@
 ///////////////////////////////////////////////////////////////////
 
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
-#include <BerlinRenderer\Base\Context.h>
-#include <string>
 
-namespace BRE {
-	class App : boost::noncopyable
-	{
-	public:
-		App(std::string const & name);
-		~App();
+#include <BerlinRenderer/Base/Config.h>
 
-		void Create();
-		void Destroy();
-		void Suspend();
-		void Resume();
-		void Refresh();
+struct GLFWwindow;
+
+NS_RENDER_BEGIN
+
+class RENDER_API App : Noncopyable
+{
+public:
+	App(string_t const & name);
+	~App();
+
+	void Create();
+	void Destroy();
+	void Suspend();
+	void Resume();
+	void Refresh();
 
 
-		void Run();
-		void Quit();
+	void Run();
+	void Quit();
 
-	private:
-		void Key_Callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-		std::string name_;
-		int window_width;
-		int window_height;
-		GLFWwindow* glWindow_;
-	};
-}
+private:
+	void Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode);
+	string_t name_;
+	int32_t window_width;
+	int32_t window_height;
+	GLFWwindow* glWindow_;
+};
+
+NS_RENDER_END

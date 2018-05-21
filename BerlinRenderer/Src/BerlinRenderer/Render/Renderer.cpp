@@ -4,18 +4,18 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include <BerlinRenderer\Render\Renderer.h>
+#include "Renderer.h"
 
+NS_RENDER_BEGIN
 
-namespace BRE {
-	Renderer::Renderer()
-	{
+Renderer::Renderer()
+{
 
-	}
-
-	
-	Renderer::~Renderer()
-	{
-
-	}
 }
+
+Renderer::~Renderer()
+{
+
+}
+
+NS_RENDER_END

@@ -4,91 +4,105 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include <BerlinRenderer\Base\Context.h>
+#include <BerlinRenderer/Base/Utils.h>
+#include <BerlinRenderer/Base/Context.h>
 #include <memory>
 
-namespace BRE {
-	Context::Context() {
-		if (!scene_manager_instance_)
-			scene_manager_instance_ = MakeUniquePtr<SceneManager>();
+NS_RENDER_BEGIN
 
-		if (!resource_manager_)
-			resource_manager_ = MakeUniquePtr<ResourceManager>();
+unique_ptr_t<Context> Context::context_instance_;
 
-		if (!render_engine_instance_)
-			render_engine_instance_ = MakeUniquePtr<RenderEngine>();
-	}
+Context::Context()
+{
+	if (!scene_manager_instance_)
+		scene_manager_instance_ = MakeUniquePtr<SceneManager>();
 
-	Context::~Context() {
+	if (!resource_manager_)
+		resource_manager_ = MakeUniquePtr<ResourceManager>();
 
-	}
+	if (!render_engine_instance_)
+		render_engine_instance_ = MakeUniquePtr<RenderEngine>();
+}
 
-	void Context::Suspend() {
-
-	}
-
-	void Context::Resume() {
-
-	}
-
-	void Context::DestroyAll() {
-		if (scene_manager_instance_)
-			scene_manager_instance_.reset();
-
-		if (resource_manager_)
-			resource_manager_.reset();
-
-		if (render_engine_instance_)
-			render_engine_instance_.reset();
-	}
-
-	void Context::Destroy() {
-		if (!context_instance_)
-		{
-			context_instance_->DestroyAll();
-			context_instance_.reset();
-		}
-	}
-
-	Context& Context::Instance() {
-		if (!context_instance_) {
-			context_instance_ = MakeUniquePtr<Context>();
-		}
-
-		return *context_instance_;
-	}
-
-	void Context::AppInstance(App& app)
-	{
-		app_ = &app;
-	}
-
-	RenderEngine& Context::RenderEngineInstance()
-	{
-		if (!render_engine_instance_)
-		{
-			render_engine_instance_ = MakeUniquePtr<RenderEngine>();
-		}
-
-		return *render_engine_instance_;
-	}
-
-	ResourceManager& Context::ResourceManagerInstance() {
-		if (!resource_manager_)
-		{
-			resource_manager_ = MakeUniquePtr<ResourceManager>();
-		}
-
-		return *resource_manager_;
-	}
-
-	SceneManager& Context::SceneManagerInstance() {
-		if (!scene_manager_instance_)
-		{
-			scene_manager_instance_ = MakeUniquePtr<SceneManager>();
-		}
-
-		return *scene_manager_instance_;
-	}
+Context::~Context()
+{
 
 }
+
+void Context::Suspend()
+{
+
+}
+
+void Context::Resume()
+{
+
+}
+
+void Context::DestroyAll()
+{
+	if (scene_manager_instance_)
+		scene_manager_instance_.reset();
+
+	if (resource_manager_)
+		resource_manager_.reset();
+
+	if (render_engine_instance_)
+		render_engine_instance_.reset();
+}
+
+void Context::Destroy()
+{
+	if (!context_instance_)
+	{
+		context_instance_->DestroyAll();
+		context_instance_.reset();
+	}
+}
+
+Context& Context::Instance()
+{
+	if (!context_instance_)
+	{
+		context_instance_ = MakeUniquePtr<Context>();
+	}
+
+	return *context_instance_;
+}
+
+void Context::AppInstance(App& app)
+{
+	app_ = &app;
+}
+
+RenderEngine& Context::RenderEngineInstance()
+{
+	if (!render_engine_instance_)
+	{
+		render_engine_instance_ = MakeUniquePtr<RenderEngine>();
+	}
+
+	return *render_engine_instance_;
+}
+
+ResourceManager& Context::ResourceManagerInstance()
+{
+	if (!resource_manager_)
+	{
+		resource_manager_ = MakeUniquePtr<ResourceManager>();
+	}
+
+	return *resource_manager_;
+}
+
+SceneManager& Context::SceneManagerInstance()
+{
+	if (!scene_manager_instance_)
+	{
+		scene_manager_instance_ = MakeUniquePtr<SceneManager>();
+	}
+
+	return *scene_manager_instance_;
+}
+
+NS_RENDER_END

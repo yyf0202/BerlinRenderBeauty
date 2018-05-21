@@ -4,98 +4,66 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include <BerlinRenderer\Render\Camera.h>
+#include "Camera.h"
 
-namespace BRE {
-	Camera::Camera()
-	{
+NS_RENDER_BEGIN
 
-	}
+Camera::Camera()
+{
 
-	Camera::~Camera()
-	{
-
-	}
-
-	void Camera::SetProjectionParams(float fov, float aspect, float nearZ, float farZ) {
-		this->fov_ = fov;
-		this->aspect_ = aspect;
-		this->near_z_ = nearZ;
-		this->far_z_ = farZ;
-
-		this->UpdateViewProjMatri();
-	}
-
-	void Camera::SetViewParams(glm::vec3 const& cameraPos, glm::vec3 const& lookatPos) {
-		SetViewParams(cameraPos, lookatPos, glm::vec3(0, 1, 0));
-	}
-
-	void Camera::SetViewParams(glm::vec3 const& cameraPos, glm::vec3 const& lookatPos, glm::vec3 const& upVec) {
-		this->pos_ = cameraPos;
-		this->target_pos_ = lookatPos;
-		this->forward_ = glm::normalize(lookatPos - cameraPos);
-		this->right_ = glm::normalize(glm::cross(this->forward_, upVec));
-		this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
-
-		this->UpdateViewProjMatri();
-	}
-
-	void Camera::UpdateViewProjMatri() {
-		this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
-		this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);
-	}
-
-	void Camera::SetCameraPos(glm::vec3 const& cameraPos) {
-		this->pos_ = cameraPos;
-		this->target_pos_ = cameraPos + this->forward_;
-		this->UpdateViewProjMatri();
-	}
-
-	void Camera::LookAt(glm::vec3 const& lookatPos) {
-		this->target_pos_ = lookatPos;
-		this->forward_ = glm::normalize(lookatPos - this->pos_);
-		this->right_ = glm::normalize(glm::cross(this->forward_, glm::vec3(0, 1, 0)));
-		this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
-		this->UpdateViewProjMatri();
-	}
-
-	glm::mat4 const&  Camera::GetViewMatrix() {
-		return this->view_matrix_;
-	}
-
-	glm::mat4 const& Camera::GetProjectionMatrix() {
-		return this->project_matrix_;
-	}
-
-	glm::vec3 const& Camera::cameraPos() {
-		return this->pos_;
-	}
-
-	glm::vec3 const& Camera::Forward() {
-		return this->forward_;
-	}
-
-	glm::vec3 const& Camera::Right() {
-		return this->right_;
-	}
-
-	glm::vec3 const& Camera::Up() {
-		this->up_;
-	}
-
-	float Camera::Fov() {
-		return this->fov_;
-	}
-
-	float Camera::Aspect() {
-		return this->aspect_;
-	}
-
-	float Camera::NearZ() {
-		return this->near_z_;
-	}
-
-	float Camera::FarZ() {
-		return this->far_z_;
-	}
 }
+
+Camera::~Camera()
+{
+
+}
+
+void Camera::SetProjectionParams(float_t fov, float_t aspect, float_t nearZ, float_t farZ)
+{
+	this->fov_ = fov;
+	this->aspect_ = aspect;
+	this->near_z_ = nearZ;
+	this->far_z_ = farZ;
+
+	this->UpdateViewProjMatri();
+}
+
+void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos)
+{
+	SetViewParams(cameraPos, lookatPos, vec3_t(0, 1, 0));
+}
+
+void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec3_t const& upVec) {
+	this->pos_ = cameraPos;
+	this->target_pos_ = lookatPos;
+	this->forward_ = glm::normalize(lookatPos - cameraPos);
+	this->right_ = glm::normalize(glm::cross(this->forward_, upVec));
+	this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
+
+	this->UpdateViewProjMatri();
+}
+
+void Camera::UpdateViewProjMatri()
+{
+	// TODO:
+	/*this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
+	this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);*/
+}
+
+void Camera::SetCameraPos(vec3_t const& cameraPos)
+{
+	this->pos_ = cameraPos;
+	this->target_pos_ = cameraPos + this->forward_;
+	this->UpdateViewProjMatri();
+}
+
+void Camera::LookAt(vec3_t const& lookatPos)
+{
+	this->target_pos_ = lookatPos;
+	this->forward_ = glm::normalize(lookatPos - this->pos_);
+	this->right_ = glm::normalize(glm::cross(this->forward_, vec3_t(0, 1, 0)));
+	this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
+	this->UpdateViewProjMatri();
+}
+
+NS_RENDER_END

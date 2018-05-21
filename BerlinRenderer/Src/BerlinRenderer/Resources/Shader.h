@@ -2,13 +2,12 @@
 #define SHADER_H
 
 
+#include <BerlinRenderer/Base/Config.h>
+
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
-
-#include <GL/glew.h>
-
 
 class Shader
 {

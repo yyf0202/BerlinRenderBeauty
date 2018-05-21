@@ -4,32 +4,30 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#ifndef _UTIL_H
-#define _UTIL_H
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
+#include <BerlinRenderer/Base/Config.h>
 
-namespace BRE {
+NS_RENDER_BEGIN
 
-	template <typename T, typename... Args>
-	inline std::unique_ptr<T> MakeUniquePtrHelper(std::false_type, Args&&... args)
-	{
-		return std::make_unique<T>(std::forward<Args>(args)...);
-	}
-
-	template <typename T, typename... Args>
-	inline std::unique_ptr<T> MakeUniquePtrHelper(std::true_type, size_t size)
-	{
-		static_assert(0 == std::extent<T>::value,
-			"make_unique<T[N]>() is forbidden, please use make_unique<T[]>().");
-
-		return std::make_unique<T>(size);
-	}
-
-	template <typename T, typename... Args>
-	inline std::unique_ptr<T> MakeUniquePtr(Args&&... args)
-	{
-		return MakeUniquePtrHelper<T>(std::is_array<T>(), std::forward<Args>(args)...);
-	}
+template <typename T, typename... Args>
+inline std::unique_ptr<T> MakeUniquePtrHelper(std::false_type, Args&&... args)
+{
+	return std::make_unique<T>(std::forward<Args>(args)...);
 }
-#endif
+
+template <typename T, typename... Args>
+inline std::unique_ptr<T> MakeUniquePtrHelper(std::true_type, size_t size)
+{
+	static_assert(0 == std::extent<T>::value,
+		"make_unique<T[N]>() is forbidden, please use make_unique<T[]>().");
+
+	return std::make_unique<T>(size);
+}
+
+template <typename T, typename... Args>
+inline std::unique_ptr<T> MakeUniquePtr(Args&&... args)
+{
+	return MakeUniquePtrHelper<T>(std::is_array<T>(), std::forward<Args>(args)...);
+}
+
+NS_RENDER_END
