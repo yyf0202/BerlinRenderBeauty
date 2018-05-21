@@ -10,7 +10,7 @@ NS_RENDER_BEGIN
 
 ResourceManager::ResourceManager()
 {
-	glm::mat4x4 mat;
+	
 }
 
 

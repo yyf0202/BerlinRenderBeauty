@@ -34,14 +34,16 @@ void App::Create()
 	glWindow_ = glfwCreateWindow(window_width, window_height, name_.c_str(), nullptr, nullptr);
 	glfwMakeContextCurrent(glWindow_);
 
-	// Set the required callback functions
-	// TODO:
-	//glfwSetKeyCallback(glWindow_, this->Key_Callback);
+	//glfwSetFramebufferSizeCallback(glWindow_, framebuffer_size_callback);
 
-	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
-	glewExperimental = GL_TRUE;
-	// Initialize GLEW to setup the OpenGL Function pointers
-	glewInit();
+	// glad: load all OpenGL function pointers
+	// ---------------------------------------
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+		std::cout << "Failed to initialize GLAD" << std::endl;
+		return ;
+	}
+
 
 	// Define the viewport dimensions
 	glViewport(0, 0, window_width, window_height);

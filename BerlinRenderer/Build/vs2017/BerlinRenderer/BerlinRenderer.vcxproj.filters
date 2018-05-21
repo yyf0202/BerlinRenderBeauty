@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h">

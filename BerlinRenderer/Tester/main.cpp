@@ -1,16 +1,15 @@
 
-#include <stdio.h>
-#include 
-
-#pragma comment(lib, "BerlinRenderer.lib")
+//#include <stdio.h>
+//#include ""
+//#pragma comment(lib, "BerlinRenderer.lib")
 
 int main()
 {
-	RENDER RenderEngine re;
-	re.Refresh();
+	//RENDER RenderEngine re;
+	//re.Refresh();
 
 
-	getchar();
+	//getchar();
 
 	return 0;
 }

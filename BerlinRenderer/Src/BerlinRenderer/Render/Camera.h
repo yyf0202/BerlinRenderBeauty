@@ -47,5 +47,5 @@ private:
 
 	void UpdateViewProjMatri();
 };
-
+typedef shared_ptr_t<Camera> CameraPtr;
 NS_RENDER_END

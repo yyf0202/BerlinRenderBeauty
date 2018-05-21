@@ -14,14 +14,22 @@
 #define RENDER_API
 #endif
 
+#pragma region  include
 #include "Noncopyable.h"
-
-// define type
 #include <string>
 #include <vector>
 #include <unordered_map>
 #include <list>
 #include <memory>
+//#include <GL/glew.h>
+#include <glad\glad.h>
+#include <KHR\khrplatform.h>
+//#include <GL/freeglut.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#pragma endregion
+
+
 
 #ifndef _STDINT
 typedef unsigned char byte_t;
@@ -38,30 +46,24 @@ typedef long long int64_t;
 typedef unsigned long long uint64_t;
 #endif
 
+#pragma region define type
 typedef float float_t;
 typedef double double_t;
-
 typedef void* ptr_t;
-
 typedef int32_t error_t;
-
 typedef std::string string_t;
+typedef glm::vec2 vec2_t;
+typedef glm::vec3 vec3_t;
+typedef glm::mat4 mat4_t;
+
 #define vector_t std::vector
 #define hash_t std::unordered_map
 #define list_t std::list
 #define shared_ptr_t std::shared_ptr
 #define unique_ptr_t std::unique_ptr
+#pragma endregion
+
 
 //#define GLEW_STATIC
 
 //#define GLEW_STATIC
-
-#include <GL/glew.h>
-#include <GL/freeglut.h>
-#include <GLFW/glfw3.h>
-
-
-#include <glm/glm.hpp>
-typedef glm::vec2 vec2_t;
-typedef glm::vec3 vec3_t;
-typedef glm::mat4 mat4_t;

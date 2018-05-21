@@ -7,6 +7,7 @@
 
 #include <BerlinRenderer\Base\Config.h>
 #include "SceneObject.h"
+#include <BerlinRenderer\Render\Camera.h>
 
 NS_RENDER_BEGIN
 
@@ -21,8 +22,16 @@ public:
 
 	void Update();
 
+
+	void AddCamera(CameraPtr const & camera);
+	void DelCamera(CameraPtr const & camera);
+
 private:
 	vector_t<SceneObjectPtr> scene_objs_;
+	vector_t<CameraPtr> cameras_;
+
+
 };
 
 NS_RENDER_END
+

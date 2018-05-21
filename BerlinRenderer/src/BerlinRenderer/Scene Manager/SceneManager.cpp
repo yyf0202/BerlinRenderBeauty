@@ -34,6 +34,17 @@ void SceneManager::DelSceneObject(SceneObjectPtr const & obj)
 	}
 }
 
+void SceneManager::AddCamera(CameraPtr const & camera)
+{
+	cameras_.push_back(camera);
+}
+
+void SceneManager::DelCamera(CameraPtr const & camera)
+{
+	auto iter = std::find(cameras_.begin(), cameras_.end(), camera);
+	cameras_.erase(iter);
+}
+
 void SceneManager::Update() {
 
 }
