@@ -4,21 +4,23 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#include <BerlinRenderer\Render\RenderEngine.h>
+#include "RenderEngine.h"
 
-namespace BRE {
+NS_RENDER_BEGIN
 
-	RenderEngine::RenderEngine()
-	{
+RenderEngine::RenderEngine()
+{
 
-	}
-
-	RenderEngine::~RenderEngine()
-	{
-
-	}
-
-	void RenderEngine::Refresh() {
-
-	}
 }
+
+RenderEngine::~RenderEngine()
+{
+
+}
+
+void RenderEngine::Refresh()
+{
+
+}
+
+NS_RENDER_END

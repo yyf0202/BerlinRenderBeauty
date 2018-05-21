@@ -4,42 +4,41 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 
-#ifndef _CONTEXT_H
-#define _CONTEXT_H
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
-#include <BerlinRenderer\Render\RenderEngine.h>
-#include <BerlinRenderer\Resources\ResourceManager.h>
-#include <BerlinRenderer\Scene Manager\SceneManager.h>
-#include <BerlinRenderer\App\App.h>
-#include <BerlinRenderer\Base\Utils.h>
 
-namespace BRE {
-	class Context : boost::noncopyable
-	{
-	public:
-		Context();
-		~Context();
+#include <BerlinRenderer/Base/Config.h>
+#include <BerlinRenderer/App/App.h>
+#include <BerlinRenderer/Render/RenderEngine.h>
+#include <BerlinRenderer/Resources/ResourceManager.h>
+#include <BerlinRenderer/Scene Manager/SceneManager.h>
 
-		static Context& Instance();
-		static void Destroy();
-		void Suspend();
-		void Resume();
-		void DestroyAll();
-		void AppInstance(App& app);
+NS_RENDER_BEGIN
 
-		RenderEngine& RenderEngineInstance();
-		ResourceManager& ResourceManagerInstance();
-		SceneManager& SceneManagerInstance();
+class Context : Noncopyable
+{
+public:
+	Context();
+	~Context();
 
-	private:
-	
-		static std::unique_ptr<Context> context_instance_;
+	static Context& Instance();
+	static void Destroy();
+	void Suspend();
+	void Resume();
+	void DestroyAll();
+	void AppInstance(App& app);
 
-		App* app_;
-		std::unique_ptr<RenderEngine> render_engine_instance_;
-		std::unique_ptr<ResourceManager> resource_manager_;
-		std::unique_ptr<SceneManager> scene_manager_instance_;
-	};
-}
-#endif
+	RenderEngine& RenderEngineInstance();
+	ResourceManager& ResourceManagerInstance();
+	SceneManager& SceneManagerInstance();
+
+private:
+
+	static unique_ptr_t<Context> context_instance_;
+
+	App* app_;
+	unique_ptr_t<RenderEngine> render_engine_instance_;
+	unique_ptr_t<ResourceManager> resource_manager_;
+	unique_ptr_t<SceneManager> scene_manager_instance_;
+};
+
+NS_RENDER_END

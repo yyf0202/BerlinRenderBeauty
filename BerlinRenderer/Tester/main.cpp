@@ -7,7 +7,7 @@
 int main()
 {
 	RENDER RenderEngine re;
-	re.Test();
+	re.Refresh();
 
 
 	getchar();

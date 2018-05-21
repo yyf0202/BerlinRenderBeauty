@@ -3,33 +3,33 @@
 //
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
-#ifndef _RESOURCEMANAGER_H
-#define _RESOURCEMANAGER_H
 #pragma once
-#include <BerlinRenderer\Render\Mesh.h>
+
+#include <BerlinRenderer/Base/Config.h>
+#include <BerlinRenderer/Resources/Mesh.h>
 #include <SOIL.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-namespace BRE {
+NS_RENDER_BEGIN
 
-	class ResourceManager
-	{
-	public:
-		ResourceManager();
-		~ResourceManager();
-		vector<Mesh> LoadMesh(string path);
+class ResourceManager
+{
+public:
+	ResourceManager();
+	~ResourceManager();
+	error_t LoadMesh(string_t path, vector_t<Mesh>& meshes);
 
-	private:
-		Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
-		vector<Texture> LoadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName);
-		int GetLoadedTexture(aiString path);
-		void ProcessNode(aiNode* node, const aiScene* scene);
-		GLint TextureFromFile(const char* path);
-		vector<Mesh> meshes;
-		vector<Texture> textures_loaded;
-		string directory;
-	};
-}
-#endif
+private:
+	error_t ProcessMesh(aiMesh& mesh, const aiScene& scene, Mesh& ms);
+	error_t LoadMaterialTextures(aiMaterial& mat, aiTextureType type, string_t typeName, vector_t<Texture2D>& texs);
+	int32_t GetLoadedTexture(aiString path);
+	void ProcessNode(aiNode& node, const aiScene& scene);
+	GLint TextureFromFile(string_t path);
+	vector_t<Mesh> meshes;
+	vector_t<Texture2D> textures_loaded;
+	string_t directory;
+};
+
+NS_RENDER_END

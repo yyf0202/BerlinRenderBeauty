@@ -3,31 +3,26 @@
 //
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
-
-#ifndef _SCENEMANAGER_H
-#define _SCENEMANAGER_H
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
-#include <vector>
 
-namespace BRE {
-	class SceneManager : boost::noncopyable
-	{
-	public:
-		SceneManager();
-		virtual ~SceneManager();
+#include <BerlinRenderer\Base\Config.h>
+#include "SceneObject.h"
 
-		void AddSceneObject(SceneObjectPtr const & obj);
-		void DelSceneObject(SceneObjectPtr const & obj);
+NS_RENDER_BEGIN
 
-		void AddCamera(CameraPtr const & camera);
-		void DelCamera(CameraPtr const & camera);
+class RENDER_API SceneManager : Noncopyable
+{
+public:
+	SceneManager();
+	virtual ~SceneManager();
 
-		void Update();
+	void AddSceneObject(SceneObjectPtr const & obj);
+	void DelSceneObject(SceneObjectPtr const & obj);
 
-	private:
-		std::vector<SceneObjectPtr> scene_objs_;
-		std::vector<CameraPtr> cameras_;
-	};
-}
-#endif
+	void Update();
+
+private:
+	vector_t<SceneObjectPtr> scene_objs_;
+};
+
+NS_RENDER_END

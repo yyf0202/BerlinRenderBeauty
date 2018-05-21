@@ -5,13 +5,15 @@
 ///////////////////////////////////////////////////////////////////
 
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
+#include <BerlinRenderer\Base\Config.h>
 
-namespace BRE {
-	class Renderer :boost::noncopyable
-	{
-	public:
-		Renderer();
-		~Renderer();
-	};
-}
+NS_RENDER_BEGIN
+
+class Renderer : Noncopyable
+{
+public:
+	Renderer();
+	~Renderer();
+};
+
+NS_RENDER_END

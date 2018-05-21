@@ -3,50 +3,52 @@
 //
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
-#ifndef _SCENEOBJECT_H
-#define _SCENEOBJECT_H
 #pragma once
-#include <BerlinRenderer\Base\PreDeclare.h>
-#include <BerlinRenderer\Base\Context.h>
-#include <BerlinRenderer\Render\mesh.h>
-#include <vector>
 
-namespace BRE {
+#include <BerlinRenderer/Base/Config.h>
+#include <BerlinRenderer/Base/Noncopyable.h>
+#include <BerlinRenderer/Resources/Mesh.h>
 
-	class SceneObject : boost::noncopyable, public std::enable_shared_from_this<SceneObject>
-	{
-	public:
-		SceneObject();
-		~SceneObject();
+NS_RENDER_BEGIN
 
-		void AddToSceneManager();
-		void DelFromSceneManager();
 
-		void ObjectID(uint32_t id);
+class SceneObject : Noncopyable, public std::enable_shared_from_this<SceneObject>
+{
+public:
+	SceneObject();
+	~SceneObject();
 
-		SceneObject* Parent() const;
-		void Parent(SceneObject* so);
-		uint32_t NumChildren() const;
-		const SceneObjectPtr& Child(uint32_t index) const;
+	void AddToSceneManager();
+	void DelFromSceneManager();
 
-		RenderablePtr const & GetRenderable() const;
-		Mesh const & GetMeshData() const;
+	inline void SetObjectID(uint32_t id) { object_id_ = id; }
 
-		void LocalMatrix(glm::mat4 const& localMatrix);
-		const glm::mat4& GetLocalMatrix() const;
+	inline SceneObject* Parent() const { return parent_; }
+	inline void SetParent(SceneObject* so) { parent_ = so; }
+	inline size_t NumChildren() const { return children_.size(); }
+	inline const shared_ptr_t<SceneObject>& Child(uint32_t index) const { return children_[index]; }
 
-		void WorldMatrix(glm::mat4 const& worldMatrix);
-		const glm::mat4& GetWorldMatrix() const;
-		void UpdateWorldMatrix();
-	protected:
-		SceneObject* parent_;
-		std::vector<SceneObjectPtr> children_;
-		RenderablePtr renderable_;
-		Mesh mesh_data;
-		uint32_t object_id_;
-		glm::mat4 local_matrix_;
-		glm::mat4 abs_matrix_;
-	};
+	//RenderablePtr const & GetRenderable() const;
+	inline Mesh const & GetMeshData() const { return mesh_data_; }
 
-}
-#endif
+	inline void SetLocalMatrix(mat4_t const& localMatrix) { local_matrix_ = localMatrix; }
+	inline const mat4_t& GetLocalMatrix() const { return local_matrix_; }
+
+	inline void SetWorldMatrix(mat4_t const& worldMatrix) { abs_matrix_ = worldMatrix; }
+	inline const mat4_t& GetWorldMatrix() const { return abs_matrix_; }
+
+	void UpdateWorldMatrix();
+
+protected:
+	SceneObject * parent_;
+	vector_t<shared_ptr_t<SceneObject>> children_;
+	//RenderablePtr renderable_;
+	Mesh mesh_data_;
+	uint32_t object_id_;
+	mat4_t local_matrix_;
+	mat4_t abs_matrix_;
+};
+
+typedef shared_ptr_t<SceneObject> SceneObjectPtr;
+
+NS_RENDER_END
