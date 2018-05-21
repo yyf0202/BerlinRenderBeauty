@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp" />
