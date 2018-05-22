@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp" />
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Shader.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\ImageLoader.cpp" />

@@ -69,6 +69,9 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c">
       <Filter>Base</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Shader.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h">
@@ -110,9 +113,6 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Noncopyable.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h">
       <Filter>Resources</Filter>
     </ClInclude>
@@ -136,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
