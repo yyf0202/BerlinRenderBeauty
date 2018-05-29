@@ -19,6 +19,9 @@
     <Filter Include="Math">
       <UniqueIdentifier>{2b4bc6e2-707f-4648-8bc2-f9b685b495fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{ba7d9ef5-ef00-433f-a9b3-9d476827666f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -137,9 +140,10 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Shader.h">
       <Filter>Render</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

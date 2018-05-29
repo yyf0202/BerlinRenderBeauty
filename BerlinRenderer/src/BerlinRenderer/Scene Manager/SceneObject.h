@@ -41,7 +41,7 @@ public:
 
 protected:
 	SceneObject * parent_;
-	vector_t<shared_ptr_t<SceneObject>> children_;
+	vector_t<SceneObjectPtr> children_;
 	//RenderablePtr renderable_;
 	Mesh mesh_data_;
 	uint32_t object_id_;

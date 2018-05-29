@@ -167,18 +167,19 @@
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Shader.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Mesh.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Resource.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h" />
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

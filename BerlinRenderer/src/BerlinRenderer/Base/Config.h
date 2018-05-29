@@ -63,7 +63,16 @@ typedef glm::mat4 mat4_t;
 #define unique_ptr_t std::unique_ptr
 #pragma endregion
 
+const int SHADER_POSITION_LOCATION = 0;
+const int SHADER_NORMAL_LOCATION = 0;
+const int SHADER_UV_LOCATION = 0;
 
+const std::string &MODEL_MATRIX = "model";
+const std::string &VIEW_MATRIX = "model";
+const std::string &PROJECTION_MATRIX = "model";
+
+const std::string &DIFFUSE_TEXTURE = "diffuse";
+const std::string &SPECULAR_TEXTURE = "specular";
 //#define GLEW_STATIC
 
 //#define GLEW_STATIC

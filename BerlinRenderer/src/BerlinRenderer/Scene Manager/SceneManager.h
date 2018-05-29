@@ -26,6 +26,8 @@ public:
 	void AddCamera(CameraPtr const & camera);
 	void DelCamera(CameraPtr const & camera);
 
+	CameraPtr const & ActiveCamera();
+
 private:
 	vector_t<SceneObjectPtr> scene_objs_;
 	vector_t<CameraPtr> cameras_;

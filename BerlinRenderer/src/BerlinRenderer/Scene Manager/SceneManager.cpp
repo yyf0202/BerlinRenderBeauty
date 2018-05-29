@@ -34,6 +34,10 @@ void SceneManager::DelSceneObject(SceneObjectPtr const & obj)
 	}
 }
 
+CameraPtr const & SceneManager::ActiveCamera() {
+	return cameras_[0];
+}
+
 void SceneManager::AddCamera(CameraPtr const & camera)
 {
 	cameras_.push_back(camera);
