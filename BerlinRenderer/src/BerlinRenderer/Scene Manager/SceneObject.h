@@ -8,9 +8,9 @@
 #include <BerlinRenderer/Base/Config.h>
 #include <BerlinRenderer/Base/Noncopyable.h>
 #include <BerlinRenderer/Resources/Mesh.h>
-
+#include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer\Render\Renderer.h>
 NS_RENDER_BEGIN
-
 
 class SceneObject : Noncopyable, public std::enable_shared_from_this<SceneObject>
 {
@@ -26,7 +26,7 @@ public:
 	inline SceneObject* Parent() const { return parent_; }
 	inline void SetParent(SceneObject* so) { parent_ = so; }
 	inline size_t NumChildren() const { return children_.size(); }
-	inline const shared_ptr_t<SceneObject>& Child(uint32_t index) const { return children_[index]; }
+	inline const SceneObjectPtr & Child(uint32_t index) const { return children_[index]; }
 
 	//RenderablePtr const & GetRenderable() const;
 	inline Mesh const & GetMeshData() const { return mesh_data_; }
@@ -37,7 +37,11 @@ public:
 	inline void SetWorldMatrix(mat4_t const& worldMatrix) { abs_matrix_ = worldMatrix; }
 	inline const mat4_t& GetWorldMatrix() const { return abs_matrix_; }
 
-	void UpdateWorldMatrix();
+	void Update();
+
+	Renderer* GetRenderer() {
+		return renderer_;
+	}
 
 protected:
 	SceneObject * parent_;
@@ -47,6 +51,8 @@ protected:
 	uint32_t object_id_;
 	mat4_t local_matrix_;
 	mat4_t abs_matrix_;
+	void UpdateWorldMatrix();
+	Renderer* renderer_;
 };
 
 typedef shared_ptr_t<SceneObject> SceneObjectPtr;

@@ -51,6 +51,10 @@ void SceneManager::DelCamera(CameraPtr const & camera)
 
 void SceneManager::Update() {
 
+	for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
+	{
+		iter->_Get()->Update();
+	}
 }
 
 NS_RENDER_END

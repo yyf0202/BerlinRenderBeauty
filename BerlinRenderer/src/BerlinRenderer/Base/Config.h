@@ -27,6 +27,8 @@
 //#include <GL/freeglut.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #pragma endregion
 
 
@@ -61,6 +63,7 @@ typedef glm::mat4 mat4_t;
 #define list_t std::list
 #define shared_ptr_t std::shared_ptr
 #define unique_ptr_t std::unique_ptr
+
 #pragma endregion
 
 const int SHADER_POSITION_LOCATION = 0;

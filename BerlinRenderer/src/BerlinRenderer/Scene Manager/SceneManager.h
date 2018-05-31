@@ -28,6 +28,10 @@ public:
 
 	CameraPtr const & ActiveCamera();
 
+	vector_t<SceneObjectPtr> GetSceneObjects() {
+		return scene_objs_;
+	}
+
 private:
 	vector_t<SceneObjectPtr> scene_objs_;
 	vector_t<CameraPtr> cameras_;
