@@ -25,6 +25,9 @@
     <Filter Include="Resources\Material">
       <UniqueIdentifier>{794f31a3-5839-4f39-9b62-cad3e1f52a80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Texture">
+      <UniqueIdentifier>{4a47e20f-ffe8-441f-a301-0c7375a2be85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -51,22 +54,10 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.cpp">
       <Filter>Scene Manager</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp">
       <Filter>Render</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Mesh.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c">
@@ -92,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.cpp">
       <Filter>Resources\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.cpp">
+      <Filter>Resources\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +131,6 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Noncopyable.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h">
       <Filter>Render</Filter>
     </ClInclude>
@@ -141,15 +138,6 @@
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Resource.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h">
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h">
@@ -181,6 +169,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.h">
       <Filter>Resources\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.h">
+      <Filter>Resources\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
