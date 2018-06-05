@@ -8,6 +8,36 @@ NS_RENDER_BEGIN
 class RENDER_API Texture2D : public Resource
 {
 public:
+
+	Texture2D();
+
+	error_t Load(string_t name);
+
+	void SetData(byte_t* data, uint32_t of_x, uint32_t of_y, uint32_t width, uint32_t height);
+	void UpdateParameters();
+
+	void SetSize(uint32_t width, uint32_t height);
+	inline uint32_t GetWidth() const { return width_; }
+	inline uint32_t GetHeight() const { return height_; }
+
+	error_t Bind();
+
+	// TODO:
+	uint32_t GetFormat() const { return 0; }
+	void SetFormat(uint32_t format) { format_ = format; }
+
+	uint32_t GetDataType() const { return dataType_; }
+	void SetDataType(uint32_t type) { dataType_ = type; }
+
+private:
+	error_t Init();
+
+protected:
+	uint32_t	width_ = 0;
+	uint32_t	height_ = 0;
+	bool_t		paramDirty_ = true;
+	uint32_t	format_ = GL_RGB;
+	uint32_t	dataType_ = GL_UNSIGNED_BYTE;
 };
 
 NS_RENDER_END

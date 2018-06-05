@@ -19,6 +19,12 @@
     <Filter Include="Math">
       <UniqueIdentifier>{2b4bc6e2-707f-4648-8bc2-f9b685b495fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Loader">
+      <UniqueIdentifier>{79dfb48c-a833-4718-bf8e-7bf5fb99e1d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Material">
+      <UniqueIdentifier>{794f31a3-5839-4f39-9b62-cad3e1f52a80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -45,9 +51,6 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.cpp">
       <Filter>Scene Manager</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\ImageLoader.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
@@ -69,8 +72,26 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c">
       <Filter>Base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Shader.cpp">
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\TextureRender.cpp">
       <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Image.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ShaderLoader.cpp">
+      <Filter>Resources\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ImageLoader.cpp">
+      <Filter>Resources\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material\Material.cpp">
+      <Filter>Resources\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.cpp">
+      <Filter>Resources\Material</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +120,6 @@
       <Filter>Render</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\ImageLoader.h">
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h">
@@ -137,8 +155,32 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\BerlinRenderer\Resources\Shader.h">
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\MacroUtils.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\TextureRender.h">
       <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Singleton.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Image.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ImageLoader.h">
+      <Filter>Resources\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ShaderLoader.h">
+      <Filter>Resources\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material\Material.h">
+      <Filter>Resources\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.h">
+      <Filter>Resources\Material</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

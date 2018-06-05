@@ -1,4 +1,5 @@
 #pragma once
+
 #include <soil.h>
 
 enum
@@ -11,18 +12,19 @@ enum
 };
 
 #include <BerlinRenderer/Base/Config.h>
+#include <BerlinRenderer/base/Singleton.h>
+#include "../Image.h"
 
 NS_RENDER_BEGIN
 
-class Texture2D;
-
-class ImageLoader
+class ImageLoader : public Singleton<ImageLoader>
 {
 public:
-	static ImageLoader& getInstance();
-	ImageLoader();
 	~ImageLoader();
-	Texture2D* Load(string_t path, int32_t width, int32_t height, int32_t format);
+	shared_ptr_t<Image> Load(string_t path);
+
+private:
+	hash_t<string_t, shared_ptr_t<Image>> images_;
 };
 
 NS_RENDER_END

@@ -8,18 +8,27 @@
 #include <BerlinRenderer\Base\Config.h>
 
 NS_RENDER_BEGIN
+
 class Shader
 {
 public:
-	Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
+	Shader();
 	~Shader();
 
-	void Draw();
+	void Active();
 
-private :
+	error_t Compile(string_t vert_code, string_t frag_code);
+	error_t Attach();
+	error_t Link();
+
+private:
+	error_t _compile(string_t code, uint32_t type);
+
+private:
 	GLuint program_;
 	bool compile_failed_;
-	
+	GLuint shader_ids_[2] = { 0 };
+	GLuint progamId_ = 0;
 };
 NS_RENDER_END
 #endif

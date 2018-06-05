@@ -45,8 +45,9 @@ void SceneManager::DelCamera(CameraPtr const & camera)
 	cameras_.erase(iter);
 }
 
-void SceneManager::Update() {
-
+void SceneManager::Update()
+{
+	
 }
 
 NS_RENDER_END
