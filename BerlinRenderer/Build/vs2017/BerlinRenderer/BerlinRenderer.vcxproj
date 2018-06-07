@@ -78,8 +78,8 @@
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\bin\win\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\bin\win\$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\..\bin\win\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\bin\win\$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <TargetExt>.ocx</TargetExt>
     <IncludePath>$(SolutionDir)..\..\Src;$(SolutionDir)..\..\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\..\lib\win\$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
@@ -173,7 +173,12 @@
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h" />
+<<<<<<< HEAD
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\TextureRender.h" />
+=======
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Shader.h" />
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\ShaderBuilder.h" />
+>>>>>>> 7dbbfcca7c33c3819308d944f04632e830b2ffbb
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Image.h" />
@@ -189,6 +194,7 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

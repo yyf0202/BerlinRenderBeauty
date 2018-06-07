@@ -19,6 +19,7 @@
     <Filter Include="Math">
       <UniqueIdentifier>{2b4bc6e2-707f-4648-8bc2-f9b685b495fa}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="Resources\Loader">
       <UniqueIdentifier>{79dfb48c-a833-4718-bf8e-7bf5fb99e1d1}</UniqueIdentifier>
     </Filter>
@@ -27,6 +28,10 @@
     </Filter>
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{4a47e20f-ffe8-441f-a301-0c7375a2be85}</UniqueIdentifier>
+=======
+    <Filter Include="Shader">
+      <UniqueIdentifier>{ba7d9ef5-ef00-433f-a9b3-9d476827666f}</UniqueIdentifier>
+>>>>>>> 7dbbfcca7c33c3819308d944f04632e830b2ffbb
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +181,15 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.h">
       <Filter>Resources\Texture</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.h">
       <Filter>Resources\Texture</Filter>
+=======
+    <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Shader.h">
+      <Filter>Render</Filter>
+>>>>>>> 7dbbfcca7c33c3819308d944f04632e830b2ffbb
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

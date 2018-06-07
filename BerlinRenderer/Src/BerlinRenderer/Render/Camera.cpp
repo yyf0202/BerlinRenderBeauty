@@ -45,9 +45,8 @@ void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec
 
 void Camera::UpdateViewProjMatri()
 {
-	// TODO:
-	/*this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
-	this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);*/
+	this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
+	this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);
 }
 
 void Camera::SetCameraPos(vec3_t const& cameraPos)
@@ -65,5 +64,16 @@ void Camera::LookAt(vec3_t const& lookatPos)
 	this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
 	this->UpdateViewProjMatri();
 }
+
+void Camera::AddToSceneManager()
+{
+	Context::Instance().SceneManagerInstance().AddCamera(this->shared_from_this());
+}
+
+void Camera::DelFromSceneManager()
+{
+	Context::Instance().SceneManagerInstance().DelCamera(this->shared_from_this());
+}
+
 
 NS_RENDER_END
