@@ -1,0 +1,25 @@
+﻿  SceneObject.cpp
+  SceneManager.cpp
+  Texture3D.cpp
+  Texture2D.cpp
+  Texture1D.cpp
+  ResourceManager.cpp
+c:\githubprojects\berlinrenderbeauty\berlinrenderer\src\berlinrenderer\resources\resourcemanager.cpp(196): warning C4101: “height”: 未引用的局部变量
+c:\githubprojects\berlinrenderbeauty\berlinrenderer\src\berlinrenderer\resources\resourcemanager.cpp(196): warning C4101: “width”: 未引用的局部变量
+  Mesh.cpp
+  ImageLoader.cpp
+  TriangleDrawer.cpp
+  ShaderBuilder.cpp
+  Renderer.cpp
+  RenderEngine.cpp
+  Camera.cpp
+  Context.cpp
+  App.cpp
+  正在生成代码...
+  glad.c
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderBeauty\BerlinRenderer\Build\vs2017\\bin\win\x64\Debug\BerlinRenderer.ocx
+  BerlinRenderer.vcxproj -> C:\GitHubProjects\BerlinRenderBeauty\BerlinRenderer\Build\vs2017\\bin\win\x64\Debug\BerlinRenderer.pdb (Partial PDB)
+  找不到文件 - BerlinRenderer.lib
+  复制了 0 个文件
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(133,5): error MSB3073: 命令“xcopy /y C:\GitHubProjects\BerlinRenderBeauty\BerlinRenderer\Build\vs2017\..\..\bin\win\x64\Debug\BerlinRenderer.lib C:\GitHubProjects\BerlinRenderBeauty\BerlinRenderer\Build\vs2017\..\..\lib\win\x64\Debug\
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(133,5): error MSB3073: :VCEnd”已退出，代码为 4。

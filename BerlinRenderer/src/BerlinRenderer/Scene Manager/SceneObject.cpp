@@ -5,6 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "SceneObject.h"
+#include <BerlinRenderer/Base/Context.h>
 
 NS_RENDER_BEGIN
 
@@ -12,7 +13,6 @@ SceneObject::SceneObject()
 {
 	local_matrix_ = mat4_t(1.0f);
 	abs_matrix_ = mat4_t(1.0f);
-	renderer_ =new Renderer(this);
 }
 
 SceneObject::~SceneObject()
@@ -48,10 +48,6 @@ void SceneObject::UpdateWorldMatrix()
 	else {
 		abs_matrix_ = local_matrix_;
 	}
-}
-
-void SceneObject::Update() {
-	UpdateWorldMatrix();
 }
 
 //RenderablePtr const & SceneObject::GetRenderable() const

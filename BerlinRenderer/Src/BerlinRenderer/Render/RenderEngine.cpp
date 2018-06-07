@@ -20,19 +20,7 @@ RenderEngine::~RenderEngine()
 
 void RenderEngine::Refresh()
 {
-	SceneManager& sm = Context::Instance().SceneManagerInstance();
 
-	//update scene object local matrix
-	sm.Update();
-
-	for (auto iter = sm.GetSceneObjects().begin(); iter != sm.GetSceneObjects().end(); ++iter)
-	{
-		SceneObject* ptr = iter->_Get();
-
-		if (ptr->GetRenderer()) {
-			ptr->GetRenderer()->Draw();
-		}
-	}
 }
 
 NS_RENDER_END

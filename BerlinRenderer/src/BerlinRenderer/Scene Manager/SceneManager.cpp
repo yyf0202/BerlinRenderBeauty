@@ -34,10 +34,6 @@ void SceneManager::DelSceneObject(SceneObjectPtr const & obj)
 	}
 }
 
-CameraPtr const & SceneManager::ActiveCamera() {
-	return cameras_[0];
-}
-
 void SceneManager::AddCamera(CameraPtr const & camera)
 {
 	cameras_.push_back(camera);
@@ -49,18 +45,9 @@ void SceneManager::DelCamera(CameraPtr const & camera)
 	cameras_.erase(iter);
 }
 
-<<<<<<< HEAD
 void SceneManager::Update()
 {
 	
-=======
-void SceneManager::Update() {
-
-	for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
-	{
-		iter->_Get()->Update();
-	}
->>>>>>> 7dbbfcca7c33c3819308d944f04632e830b2ffbb
 }
 
 NS_RENDER_END

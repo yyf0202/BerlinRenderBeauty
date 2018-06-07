@@ -5,24 +5,9 @@
 #include <BerlinRenderer\Base\Config.h>
 #include <iostream>
 
-void Init();
 int main()
 {
-	glfwInit();
-	// Set all the required options for GLFW
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-	GLFWwindow* glWindow_ = glfwCreateWindow(800, 600, "Main", nullptr, nullptr);
-	glfwMakeContextCurrent(glWindow_);
-	glfwSetFramebufferSizeCallback(glWindow_, framebuffer_size_callback);
-
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
-		return;
-	}
+	Init();
 
 	GLuint vertexShader, fragmentShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -63,105 +48,11 @@ int main()
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
+
 	glUseProgram(shaderProgramm);
-
-
-	//while (!glfwWindowShouldClose(window))
-	//{
-
-
-	//}
-
-
-	GLuint VAO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-
-	//generate & bind VBO
-	unsigned int VBO;
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-
-	GLuint VEO;
-	glGenBuffers(1, &VEO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VEO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-
-
-	while (true) {
-		// ------
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		// draw our first triangle
-		glUseProgram(shaderProgramm);
-		glBindVertexArray(VAO);
-
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-		glfwSwapBuffers(glWindow_);
-		glfwPollEvents();
-	}
-
-
-	
 
 	return 0;
 }
-
-void DrawVertices() {
-	// generate & bind VAO
-	GLuint VAO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-
-	//generate & bind VBO
-	unsigned int VBO;
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-
-	GLuint VEO;
-	glGenBuffers(1, &VEO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VEO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-
-
-}
-
-void InitTexture() {
-
-	glm::mat4 mvp;
-
-	
-}
-
-float vertices[] = {
-	0.5f, 0.5f, 0.0f,
-	0.5f, -0.5f, 0.0f,
-	-0.5f, -0.5f, 0.0f,
-	-0.5f, 0.5f, 0.0f
-};
-
-GLuint indices[] = {
-	0, 1, 3,
-	1, 2, 3
-};
 
 #pragma region Shader source code
 const char *vertexShaderSource =
