@@ -21,11 +21,12 @@ public:
 	error_t Attach();
 	error_t Link();
 
+	GLuint GetId() { return progamId_; }
+
 private:
 	error_t _compile(string_t code, uint32_t type);
 
 private:
-	GLuint program_;
 	bool compile_failed_;
 	GLuint shader_ids_[2] = { 0 };
 	GLuint progamId_ = 0;

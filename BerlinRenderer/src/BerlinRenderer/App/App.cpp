@@ -8,13 +8,14 @@
 
 #include <BerlinRenderer/Render/RenderEngine.h>
 #include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Resources/Loader/ShaderLoader.h>
 
 NS_RENDER_BEGIN
 
 App::App(string_t const & name)
-	:name_(name)
-	,window_width(0)
-	,window_height(0)
+	: name_(name)
+	, window_width(400)
+	, window_height(400)
 {
 }
 
@@ -44,9 +45,12 @@ void App::Create()
 		return ;
 	}
 
-
 	// Define the viewport dimensions
 	glViewport(0, 0, window_width, window_height);
+
+	ShaderLoader::GetInstance().Startup();
+
+	Startup();
 }
 
 void App::Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode)
@@ -77,8 +81,15 @@ void App::Refresh()
 
 }
 
+void App::Startup()
+{
+
+}
+
 void App::Run()
 {
+	Create();
+
 	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
 
 	while (!glfwWindowShouldClose(glWindow_))

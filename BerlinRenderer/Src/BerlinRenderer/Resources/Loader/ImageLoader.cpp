@@ -15,8 +15,9 @@ shared_ptr_t<Image> ImageLoader::Load(string_t path)
 
 	int width, height;
 
-	byte_t* data = SOIL_load_image(path.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
-	if (data == nullptr) return shared_ptr_t<Image>(nullptr);
+	byte_t* data = nullptr;
+	/*data = SOIL_load_image(path.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
+	if (data == nullptr) return shared_ptr_t<Image>(nullptr);*/
 
 	auto img = new Image();
 	img->SetData(data);

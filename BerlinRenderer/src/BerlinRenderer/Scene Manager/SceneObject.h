@@ -40,9 +40,8 @@ public:
 
 	void Update();
 
-	Renderer* GetRenderer() {
-		return renderer_;
-	}
+	inline Renderer* GetRenderer() { return renderer_;	}
+	inline void SetRender(Renderer* renderer) { renderer_ = renderer; }
 
 protected:
 	SceneObject * parent_;

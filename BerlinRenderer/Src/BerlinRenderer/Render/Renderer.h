@@ -17,11 +17,10 @@ public:
 	Renderer();
 	~Renderer();
 
-	//virtual void Render() = 0;
-	void Draw();
+	virtual void Draw();
 
-	void SetMaterial(Material* mat) { mat_ = mat; }
-	Material* GetMaterial() { return mat_; }
+	void SetMaterial(Material* mat);
+	Material* GetMaterial();
 
 protected:
 	Material * mat_ = nullptr;

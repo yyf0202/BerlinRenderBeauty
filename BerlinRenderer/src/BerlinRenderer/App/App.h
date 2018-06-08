@@ -28,6 +28,8 @@ public:
 	void Run();
 	void Quit();
 
+	virtual void Startup();
+
 private:
 	void Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode);
 	string_t name_;

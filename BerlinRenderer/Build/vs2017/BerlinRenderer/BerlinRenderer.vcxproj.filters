@@ -28,6 +28,9 @@
     <Filter Include="Resources\Texture">
       <UniqueIdentifier>{4a47e20f-ffe8-441f-a301-0c7375a2be85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Render\ShapeRender">
+      <UniqueIdentifier>{76e2782b-57af-42af-a6da-b824c40bbb3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.cpp">
       <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.cpp">
+      <Filter>Render\ShapeRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +185,10 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.h">
       <Filter>Resources\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.h">
+      <Filter>Render\ShapeRender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\BerlinRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

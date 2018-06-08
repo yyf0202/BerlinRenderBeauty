@@ -6,6 +6,8 @@
 
 #include "Renderer.h"
 
+#include <BerlinRenderer/Resources/Material/Material.h>
+
 NS_RENDER_BEGIN
 
 Renderer::Renderer()
@@ -47,6 +49,16 @@ void Renderer::Draw()
 
 	//	glActiveTexture(GL_TEXTURE0);
 	//}
+}
+
+void Renderer::SetMaterial(Material* mat)
+{ 
+	mat_ = mat;
+}
+
+Material* Renderer::GetMaterial()
+{
+	return mat_ == nullptr ? &Material::GetDefaultMaterial() : mat_;
 }
 
 NS_RENDER_END

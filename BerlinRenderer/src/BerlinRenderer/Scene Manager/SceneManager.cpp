@@ -39,7 +39,7 @@ void SceneManager::Update()
 
 	for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
 	{
-		//iter->_Get()->Update();
+		(*iter)->Update();
 	}
 }
 

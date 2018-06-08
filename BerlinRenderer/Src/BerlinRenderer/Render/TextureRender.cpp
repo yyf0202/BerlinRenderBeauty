@@ -5,16 +5,22 @@
 
 NS_RENDER_BEGIN
 
-//void TextureRender::Render()
-//{
-//	if (tex_ == nullptr) return;
-//	if (mat_ == nullptr) return; // add a default materail?
-//
-//	glActiveTexture(GL_TEXTURE0);
-//	tex_->Bind();
-//	mat_->Use();
-//
-//}
+void TextureRender::Draw()
+{
+	if (tex_ == nullptr) return;
+	if (mat_ == nullptr) return; // add a default materail?
+
+	glActiveTexture(GL_TEXTURE0);
+
+	//mat_->SetMat4(MODEL_MATRIX, object_->GetWorldMatrix());
+	//mat_->SetMat4(VIEW_MATRIX, camera->GetViewMatrix());
+	//mat_->SetMat4(PROJECTION_MATRIX, camera->GetProjectionMatrix());
+
+	tex_->Bind();
+	mat_->Use();
+
+
+}
 
 void TextureRender::SetTexture(Texture2D* tex)
 {

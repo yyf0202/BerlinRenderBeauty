@@ -23,6 +23,8 @@ error_t ShaderLoader::Startup()
 	default_ = _loadByContent(_s_def_vert, _s_def_frag).get();
 	if (default_ == nullptr) return -1;
 
+	shaders_["default"] = shared_ptr_t<Shader>(default_);
+
 	return 0;
 }
 
@@ -40,7 +42,10 @@ shared_ptr_t<Shader> ShaderLoader::Load(string_t path)
 		auto content_frag = FileManager::GetInstance().Read(path + ".frag");
 		if (content_frag == "") break;
 
-		return _loadByContent(content_vert, content_frag);
+		auto sd = _loadByContent(content_vert, content_frag);
+		if (sd == nullptr) break;
+
+		shaders_[path] = shared_ptr_t<Shader>(sd);
 	} while (false);
 
 	return shared_ptr_t<Shader>(default_);
@@ -51,11 +56,11 @@ shared_ptr_t<Shader> ShaderLoader::_loadByContent(string_t& vert, string_t& frag
 	do
 	{
 		auto sd = new Shader();
-		if (!sd->Compile(vert, frag)) break;
+		if (sd->Compile(vert, frag)) break;
 
-		if (!sd->Link()) break;
+		if (sd->Link()) break;
 
-		if (!sd->Attach()) break;
+		if (sd->Attach()) break;
 
 		return shared_ptr_t<Shader>(sd);
 	} while (false);
