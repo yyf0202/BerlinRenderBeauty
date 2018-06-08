@@ -40,7 +40,7 @@ void App::Create()
 	// ---------------------------------------
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
+		//std::cout << "Failed to initialize GLAD" << std::endl;
 		return ;
 	}
 
@@ -79,7 +79,7 @@ void App::Refresh()
 
 void App::Run()
 {
-	RenderEngine& re = Context::Instance().RenderEngineInstance();
+	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
 
 	while (!glfwWindowShouldClose(glWindow_))
 	{

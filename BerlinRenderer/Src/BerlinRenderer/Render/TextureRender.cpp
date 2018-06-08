@@ -5,16 +5,16 @@
 
 NS_RENDER_BEGIN
 
-void TextureRender::Render()
-{
-	if (tex_ == nullptr) return;
-	if (mat_ == nullptr) return; // add a default materail?
-
-	glActiveTexture(GL_TEXTURE0);
-	tex_->Bind();
-	mat_->Use();
-
-}
+//void TextureRender::Render()
+//{
+//	if (tex_ == nullptr) return;
+//	if (mat_ == nullptr) return; // add a default materail?
+//
+//	glActiveTexture(GL_TEXTURE0);
+//	tex_->Bind();
+//	mat_->Use();
+//
+//}
 
 void TextureRender::SetTexture(Texture2D* tex)
 {

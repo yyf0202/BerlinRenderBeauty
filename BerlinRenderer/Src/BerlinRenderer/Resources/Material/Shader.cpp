@@ -64,6 +64,8 @@ error_t Shader::Compile(string_t vert_code, string_t frag_code)
 
 	ret = _compile(frag_code, 1);
 	if (ret != 0) return ret;
+
+	return 0;
 }
 
 error_t Shader::Link()

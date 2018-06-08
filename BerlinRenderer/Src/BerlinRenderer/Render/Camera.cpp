@@ -5,6 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "Camera.h"
+#include <BerlinRenderer/Scene Manager/SceneManager.h>
 
 NS_RENDER_BEGIN
 
@@ -45,9 +46,8 @@ void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec
 
 void Camera::UpdateViewProjMatri()
 {
-	// TODO:
-	/*this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
-	this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);*/
+	this->view_matrix_ = glm::lookAt(this->pos_, this->pos_ + this->forward_, this->up_);
+	this->project_matrix_ = glm::perspective(glm::radians(this->fov_), this->aspect_, this->near_z_, this->far_z_);
 }
 
 void Camera::SetCameraPos(vec3_t const& cameraPos)
@@ -59,11 +59,17 @@ void Camera::SetCameraPos(vec3_t const& cameraPos)
 
 void Camera::LookAt(vec3_t const& lookatPos)
 {
-	this->target_pos_ = lookatPos;
-	this->forward_ = glm::normalize(lookatPos - this->pos_);
-	this->right_ = glm::normalize(glm::cross(this->forward_, vec3_t(0, 1, 0)));
-	this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
 	this->UpdateViewProjMatri();
+}
+
+void Camera::AddToSceneManager()
+{
+	Context::GetInstance().SceneManagerInstance().AddCamera(this->shared_from_this());
+}
+
+void Camera::DelFromSceneManager()
+{
+	Context::GetInstance().SceneManagerInstance().DelCamera(this->shared_from_this());
 }
 
 NS_RENDER_END

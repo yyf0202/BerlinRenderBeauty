@@ -17,7 +17,8 @@ public:
 	Renderer();
 	~Renderer();
 
-	virtual void Render() = 0;
+	//virtual void Render() = 0;
+	void Draw();
 
 	void SetMaterial(Material* mat) { mat_ = mat; }
 	Material* GetMaterial() { return mat_; }

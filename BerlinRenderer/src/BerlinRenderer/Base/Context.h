@@ -7,20 +7,21 @@
 #pragma once
 
 #include <BerlinRenderer/Base/Config.h>
-#include <BerlinRenderer/App/App.h>
-#include <BerlinRenderer/Render/RenderEngine.h>
-#include <BerlinRenderer/Resources/ResourceManager.h>
-#include <BerlinRenderer/Scene Manager/SceneManager.h>
+#include <BerlinRenderer/Base/Singleton.h>
 
 NS_RENDER_BEGIN
 
-class Context : Noncopyable
+class App;
+class RenderEngine;
+class ResourceManager;
+class SceneManager;
+
+class Context : Noncopyable, public Singleton<Context>
 {
 public:
 	Context();
 	~Context();
 
-	static Context& Instance();
 	static void Destroy();
 	void Suspend();
 	void Resume();
@@ -33,12 +34,10 @@ public:
 
 private:
 
-	static unique_ptr_t<Context> context_instance_;
-
-	App* app_;
-	unique_ptr_t<RenderEngine> render_engine_instance_;
-	unique_ptr_t<ResourceManager> resource_manager_;
-	unique_ptr_t<SceneManager> scene_manager_instance_;
+	App* app_ = nullptr;
+	RenderEngine* render_engine_instance_ = nullptr;
+	ResourceManager* resource_manager_ = nullptr;
+	SceneManager* scene_manager_instance_ = nullptr;
 };
 
 NS_RENDER_END

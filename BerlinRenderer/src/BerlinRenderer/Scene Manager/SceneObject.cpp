@@ -6,6 +6,8 @@
 
 #include "SceneObject.h"
 #include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Scene Manager/SceneManager.h>
+//#include <BerlinRenderer/Render/Renderer.h>
 
 NS_RENDER_BEGIN
 
@@ -13,6 +15,7 @@ SceneObject::SceneObject()
 {
 	local_matrix_ = mat4_t(1.0f);
 	abs_matrix_ = mat4_t(1.0f);
+	//renderer_ = new Renderer(this);
 }
 
 SceneObject::~SceneObject()
@@ -22,7 +25,7 @@ SceneObject::~SceneObject()
 
 void SceneObject::AddToSceneManager()
 {
-	Context::Instance().SceneManagerInstance().AddSceneObject(this->shared_from_this());
+	Context::GetInstance().SceneManagerInstance().AddSceneObject(this->shared_from_this());
 
 	for (auto const & child : children_)
 	{
@@ -37,7 +40,7 @@ void SceneObject::DelFromSceneManager()
 		child->DelFromSceneManager();
 	}
 
-	Context::Instance().SceneManagerInstance().DelSceneObject(this->shared_from_this());
+	Context::GetInstance().SceneManagerInstance().DelSceneObject(this->shared_from_this());
 }
 
 void SceneObject::UpdateWorldMatrix()
@@ -48,6 +51,10 @@ void SceneObject::UpdateWorldMatrix()
 	else {
 		abs_matrix_ = local_matrix_;
 	}
+}
+
+void SceneObject::Update() {
+	UpdateWorldMatrix();
 }
 
 //RenderablePtr const & SceneObject::GetRenderable() const

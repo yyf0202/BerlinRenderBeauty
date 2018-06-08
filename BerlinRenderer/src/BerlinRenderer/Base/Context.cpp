@@ -6,22 +6,23 @@
 
 #include <BerlinRenderer/Base/Utils.h>
 #include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Scene Manager/SceneManager.h>
+#include <BerlinRenderer/Resources/ResourceManager.h>
+#include <BerlinRenderer/Render/RenderEngine.h>
 #include <memory>
 
 NS_RENDER_BEGIN
 
-unique_ptr_t<Context> Context::context_instance_;
-
 Context::Context()
 {
 	if (!scene_manager_instance_)
-		scene_manager_instance_ = MakeUniquePtr<SceneManager>();
+		scene_manager_instance_ = new SceneManager();
 
 	if (!resource_manager_)
-		resource_manager_ = MakeUniquePtr<ResourceManager>();
+		resource_manager_ = new ResourceManager();
 
 	if (!render_engine_instance_)
-		render_engine_instance_ = MakeUniquePtr<RenderEngine>();
+		render_engine_instance_ = new RenderEngine();
 }
 
 Context::~Context()
@@ -41,33 +42,23 @@ void Context::Resume()
 
 void Context::DestroyAll()
 {
-	if (scene_manager_instance_)
-		scene_manager_instance_.reset();
+	//if (scene_manager_instance_)
+	//	scene_manager_instance_->reset();
 
-	if (resource_manager_)
-		resource_manager_.reset();
+	//if (resource_manager_)
+	//	resource_manager_.reset();
 
-	if (render_engine_instance_)
-		render_engine_instance_.reset();
+	//if (render_engine_instance_)
+	//	render_engine_instance_.reset();
 }
 
 void Context::Destroy()
 {
-	if (!context_instance_)
-	{
-		context_instance_->DestroyAll();
-		context_instance_.reset();
-	}
-}
-
-Context& Context::Instance()
-{
-	if (!context_instance_)
-	{
-		context_instance_ = MakeUniquePtr<Context>();
-	}
-
-	return *context_instance_;
+	//if (!context_instance_)
+	//{
+	//	context_instance_->DestroyAll();
+	//	context_instance_.reset();
+	//}
 }
 
 void Context::AppInstance(App& app)
@@ -77,31 +68,16 @@ void Context::AppInstance(App& app)
 
 RenderEngine& Context::RenderEngineInstance()
 {
-	if (!render_engine_instance_)
-	{
-		render_engine_instance_ = MakeUniquePtr<RenderEngine>();
-	}
-
 	return *render_engine_instance_;
 }
 
 ResourceManager& Context::ResourceManagerInstance()
 {
-	if (!resource_manager_)
-	{
-		resource_manager_ = MakeUniquePtr<ResourceManager>();
-	}
-
 	return *resource_manager_;
 }
 
 SceneManager& Context::SceneManagerInstance()
 {
-	if (!scene_manager_instance_)
-	{
-		scene_manager_instance_ = MakeUniquePtr<SceneManager>();
-	}
-
 	return *scene_manager_instance_;
 }
 

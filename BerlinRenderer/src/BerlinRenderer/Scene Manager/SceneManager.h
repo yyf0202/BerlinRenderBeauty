@@ -5,9 +5,10 @@
 ///////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <BerlinRenderer\Base\Config.h>
+#include <BerlinRenderer/Base/Config.h>
 #include "SceneObject.h"
-#include <BerlinRenderer\Render\Camera.h>
+#include <BerlinRenderer/Render/Camera.h>
+#include <BerlinRenderer/Scene Manager/SceneObject.h>
 
 NS_RENDER_BEGIN
 
@@ -26,11 +27,13 @@ public:
 	void AddCamera(CameraPtr const & camera);
 	void DelCamera(CameraPtr const & camera);
 
+	CameraPtr const & ActiveCamera();
+
+	vector_t<SceneObjectPtr> GetSceneObjects() { return scene_objs_;	}
+
 private:
 	vector_t<SceneObjectPtr> scene_objs_;
 	vector_t<CameraPtr> cameras_;
-
-
 };
 
 NS_RENDER_END

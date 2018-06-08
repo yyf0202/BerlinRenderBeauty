@@ -6,10 +6,11 @@
 
 #pragma once
 #include <BerlinRenderer/Base/Config.h>
+#include <BerlinRenderer/Base/Context.h>
 
 NS_RENDER_BEGIN
 
-class RENDER_API Camera
+class RENDER_API Camera : Noncopyable, public std::enable_shared_from_this<Camera>
 {
 public:
 	Camera();
@@ -19,6 +20,10 @@ public:
 	void SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec3_t const& upVec);
 	void SetCameraPos(vec3_t const& cameraPos);
 	void LookAt(vec3_t const& lookatPos);
+
+	void AddToSceneManager();
+	void DelFromSceneManager();
+
 
 	inline mat4_t const& GetViewMatrix() { return view_matrix_;	}
 	inline mat4_t const& GetProjectionMatrix() { return project_matrix_; }

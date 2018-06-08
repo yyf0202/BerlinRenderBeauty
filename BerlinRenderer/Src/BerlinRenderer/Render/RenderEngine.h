@@ -6,6 +6,7 @@
 
 #pragma once
 #include <BerlinRenderer\Base\Config.h>
+#include <BerlinRenderer\Base\Context.h>
 
 NS_RENDER_BEGIN
 
