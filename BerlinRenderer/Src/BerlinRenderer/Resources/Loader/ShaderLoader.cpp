@@ -8,13 +8,13 @@ static string_t _s_def_vert = "#version 330 core\n"
 		"void main()\n"
 		"{\n"
 		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
+		"}";
 static string_t _s_def_frag = "#version 330 core\n"
 		"out vec4 FragColor;\n"
 		"void main()\n"
 		"{\n"
 		"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-	"}\n\0";
+	"}\n";
 
 NS_RENDER_BEGIN
 
@@ -58,9 +58,9 @@ shared_ptr_t<Shader> ShaderLoader::_loadByContent(string_t& vert, string_t& frag
 		auto sd = new Shader();
 		if (sd->Compile(vert, frag)) break;
 
-		if (sd->Link()) break;
-
 		if (sd->Attach()) break;
+
+		if (sd->Link()) break;
 
 		return shared_ptr_t<Shader>(sd);
 	} while (false);

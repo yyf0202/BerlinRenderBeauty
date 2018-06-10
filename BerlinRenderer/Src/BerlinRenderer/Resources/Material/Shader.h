@@ -25,6 +25,7 @@ public:
 
 private:
 	error_t _compile(string_t code, uint32_t type);
+	void CheckError(GLuint shader, GLbyte status);
 
 private:
 	bool compile_failed_;

@@ -75,25 +75,16 @@ error_t Shader::Link()
 	GLint linked;
 	glGetProgramiv(progamId_, GL_LINK_STATUS, &linked);
 
-	if (linked == GL_TRUE)
+	if (!linked)
 	{
-		// TODO: add AttribLocation init
-		return true;
+		//#ifdef OPEN_GL_LOG
+		static GLchar infoLog[512];
+		glGetProgramInfoLog(progamId_, 512, nullptr, infoLog);
+		std::cout << "link log ='%s '\n" << infoLog;
+		//#endif
+		return -1;
 	}
-	else
-	{
-#ifdef OPEN_GL_LOG
-		GLint len;
-		GLchar* log;
-		glGetProgramiv(m_program_id, GL_INFO_LOG_LENGTH, &len);
-
-		log = new GLchar[len];
-		glGetProgramInfoLog(m_program_id, len, &len, log);
-		GL_LOG("link log ='%s '\n", log);
-		delete log;
-#endif
-		return false;
-	}
+	return 0;
 }
 
 error_t Shader::Attach()
@@ -105,6 +96,18 @@ error_t Shader::Attach()
 	glDeleteShader(shader_ids_[1]);
 
 	return 0;
+}
+
+void Shader::CheckError(GLuint shader, GLbyte status)
+{
+	GLint success;
+	GLchar infoLog[512];
+	glGetShaderiv(shader, status, &success);
+	if (!success)
+	{
+		glGetShaderInfoLog(shader, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+	}
 }
 
 NS_RENDER_END
