@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\Timer_win.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Noncopyable.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\PreDeclare.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Singleton.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Timer.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Utils.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\BerlinRenderer.h" />

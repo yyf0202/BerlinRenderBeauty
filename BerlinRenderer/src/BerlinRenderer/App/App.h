@@ -36,6 +36,9 @@ private:
 	int32_t window_width;
 	int32_t window_height;
 	GLFWwindow* glWindow_;
+
+	uint32_t FPS_ = 60;
+	uint32_t frameTime_ = 0;
 };
 
 NS_RENDER_END

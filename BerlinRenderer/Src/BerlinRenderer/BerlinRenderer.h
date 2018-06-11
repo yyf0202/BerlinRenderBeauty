@@ -4,6 +4,7 @@
 
 #include <BerlinRenderer/Base/Config.h>
 #include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Base/ThreadPool.h>
 
 #include <BerlinRenderer/Scene Manager/SceneObject.h>
 #include <BerlinRenderer/Scene Manager/SceneManager.h>

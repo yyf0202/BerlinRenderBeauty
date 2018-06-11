@@ -10,6 +10,7 @@
 #include <BerlinRenderer/Base/Context.h>
 #include <BerlinRenderer/Resources/Loader/ShaderLoader.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
+#include <BerlinRenderer/Base/Timer.h>
 
 NS_RENDER_BEGIN
 
@@ -91,10 +92,16 @@ void App::Run()
 {
 	Create();
 
+	frameTime_ = 1000 / FPS_;
+
 	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
+
+	Timer timer;
 
 	while (!glfwWindowShouldClose(glWindow_))
 	{
+		timer.Begin();
+
 		CpuRegion _region("App::Run");
 
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
@@ -108,6 +115,12 @@ void App::Run()
 		re.Refresh();
 
 		glfwSwapBuffers(glWindow_);
+
+		timer.End();
+		auto milli = timer.Milliseconds();
+		if (milli >= frameTime_) continue;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(frameTime_ - milli));
 	}
 
 	glfwTerminate();

@@ -5,7 +5,7 @@
 #define RENDER				BRE::
 #define USE_RENDER			using namespace BRE
 
-#define OPEN_PROFILER 1
+//#define OPEN_PROFILER 1
 
 //#define OPEN_RENDER_API
 
@@ -27,6 +27,7 @@
 #include <memory>
 #include <stack>
 #include <queue>
+#include <thread>
 
 #include "Noncopyable.h"
 #include <glad/glad.h>
