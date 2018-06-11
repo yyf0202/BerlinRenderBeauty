@@ -9,6 +9,7 @@
 #include <BerlinRenderer/Render/RenderEngine.h>
 #include <BerlinRenderer/Base/Context.h>
 #include <BerlinRenderer/Resources/Loader/ShaderLoader.h>
+#include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN
 
@@ -94,6 +95,8 @@ void App::Run()
 
 	while (!glfwWindowShouldClose(glWindow_))
 	{
+		CpuRegion _region("App::Run");
+
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
 		glfwPollEvents();
 

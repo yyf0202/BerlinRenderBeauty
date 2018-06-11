@@ -7,6 +7,7 @@
 #include "RenderEngine.h"
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 #include <BerlinRenderer/Render/Renderer.h>
+#include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN
 
@@ -22,6 +23,8 @@ RenderEngine::~RenderEngine()
 
 void RenderEngine::Refresh()
 {
+	PROFILE_FUNCTION();
+
 	SceneManager& sm = Context::GetInstance().SceneManagerInstance();
 
 	//update scene object local matrix

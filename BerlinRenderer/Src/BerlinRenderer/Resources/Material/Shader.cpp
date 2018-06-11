@@ -22,6 +22,7 @@ Shader::~Shader()
 void Shader::Active()
 {
 	glUseProgram(progamId_);
+	CHECK_OPENGL();
 }
 
 error_t Shader::_compile(string_t code, uint32_t type)
@@ -35,6 +36,7 @@ error_t Shader::_compile(string_t code, uint32_t type)
 	glCompileShader(shader_ids_[type]);
 	GLint compiled;
 	glGetShaderiv(shader_ids_[type], GL_COMPILE_STATUS, &compiled);
+	CHECK_OPENGL();
 
 	if (compiled == GL_FALSE)
 	{

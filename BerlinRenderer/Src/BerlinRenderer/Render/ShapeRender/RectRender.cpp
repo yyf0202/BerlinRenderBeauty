@@ -1,6 +1,7 @@
 
 #include "RectRender.h"
 #include <BerlinRenderer/Resources/Material/Material.h>
+#include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN
 
@@ -38,6 +39,8 @@ RectRender::RectRender()
 
 void RectRender::Draw()
 {
+	PROFILE_FUNCTION();
+
 	GetMaterial()->Use();
 	glBindVertexArray(vao_);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
