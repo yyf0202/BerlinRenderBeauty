@@ -20,10 +20,12 @@ NS_RENDER_BEGIN
 
 error_t ShaderLoader::Startup()
 {
-	default_ = _loadByContent(_s_def_vert, _s_def_frag).get();
-	if (default_ == nullptr) return -1;
+	auto tmp = _loadByContent(_s_def_vert, _s_def_frag);
+	if (tmp == nullptr) return -1;
 
-	shaders_["default"] = shared_ptr_t<Shader>(default_);
+	default_ = tmp.get();
+
+	shaders_["default"] = tmp;
 
 	return 0;
 }
