@@ -8,6 +8,7 @@
 #include <BerlinRenderer/Base/Context.h>
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 //#include <BerlinRenderer/Render/Renderer.h>
+#include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN
 
@@ -45,6 +46,8 @@ void SceneObject::DelFromSceneManager()
 
 void SceneObject::UpdateWorldMatrix()
 {
+	PROFILE_FUNCTION();
+
 	if (parent_) {
 		abs_matrix_ = parent_->GetLocalMatrix() * local_matrix_;
 	}
@@ -54,6 +57,8 @@ void SceneObject::UpdateWorldMatrix()
 }
 
 void SceneObject::Update() {
+	PROFILE_FUNCTION();
+
 	UpdateWorldMatrix();
 }
 

@@ -31,6 +31,9 @@
     <Filter Include="Render\ShapeRender">
       <UniqueIdentifier>{76e2782b-57af-42af-a6da-b824c40bbb3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Profiler">
+      <UniqueIdentifier>{40b999d9-ca55-48a2-bbd4-3091773d325e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -98,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.cpp">
       <Filter>Render\ShapeRender</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\Timer_win.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp">
+      <Filter>Profiler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +198,12 @@
       <Filter>Render\ShapeRender</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\BerlinRenderer.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Timer.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

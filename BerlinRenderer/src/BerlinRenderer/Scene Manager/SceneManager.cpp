@@ -4,6 +4,7 @@
 // ÐÞ¸Ä¼ÇÂ¼
 ///////////////////////////////////////////////////////////////////
 #include "SceneManager.h"
+#include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN
 
@@ -36,7 +37,7 @@ void SceneManager::DelSceneObject(SceneObjectPtr const & obj)
 
 void SceneManager::Update()
 {
-
+	PROFILE_FUNCTION();
 	for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
 	{
 		(*iter)->Update();

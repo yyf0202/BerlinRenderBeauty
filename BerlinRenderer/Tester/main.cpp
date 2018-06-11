@@ -8,10 +8,10 @@
 
 int main()
 {
-
 	tester::ShapeRenderTester::Run();
 	//tester::TextureRenderTester::Run();
 	
+	getchar();
 
 	return 0;
 }
