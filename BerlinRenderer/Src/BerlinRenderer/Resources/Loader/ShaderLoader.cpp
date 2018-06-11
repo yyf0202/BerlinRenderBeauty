@@ -47,7 +47,9 @@ shared_ptr_t<Shader> ShaderLoader::Load(string_t path)
 		auto sd = _loadByContent(content_vert, content_frag);
 		if (sd == nullptr) break;
 
-		shaders_[path] = shared_ptr_t<Shader>(sd);
+		shaders_[path] = sd;
+
+		return sd;
 	} while (false);
 
 	return shared_ptr_t<Shader>(default_);

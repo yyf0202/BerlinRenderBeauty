@@ -16,8 +16,9 @@ error_t Texture2D::Load(string_t name)
 	// TODO: error
 	if (img == nullptr) return -1;
 
+	Bind();
 	SetData(img->GetData(), 0, 0, width_, height_);
-
+	CHECK_OPENGL();
 	return 0;
 }
 

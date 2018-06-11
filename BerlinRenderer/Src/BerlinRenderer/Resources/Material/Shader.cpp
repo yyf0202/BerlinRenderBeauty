@@ -97,6 +97,8 @@ error_t Shader::Attach()
 	glDeleteShader(shader_ids_[0]);
 	glDeleteShader(shader_ids_[1]);
 
+	CHECK_OPENGL();
+
 	return 0;
 }
 
