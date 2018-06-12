@@ -13,18 +13,21 @@ enum
 
 #include <BerlinRenderer/Base/Config.h>
 #include <BerlinRenderer/base/Singleton.h>
-#include "../Image.h"
+#include "Loader.h"
 
 NS_RENDER_BEGIN
 
-class ImageLoader : public Singleton<ImageLoader>
+class Image;
+
+class ImageLoader : public Loader<Image>
 {
 public:
-	~ImageLoader();
-	shared_ptr_t<Image> Load(string_t path);
+	ImageLoader(string_t path, function_t<void(Image*)> loaded) : Loader(path, loaded) {}
 
-private:
-	hash_t<string_t, shared_ptr_t<Image>> images_;
+	static Image* Load(string_t path);
+
+	virtual void BeginTask() override;
+	virtual void EndTask() override;
 };
 
 NS_RENDER_END

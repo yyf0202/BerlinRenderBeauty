@@ -9,7 +9,8 @@
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 #include <BerlinRenderer/Resources/ResourceManager.h>
 #include <BerlinRenderer/Render/RenderEngine.h>
-#include <memory>
+#include <BerlinRenderer/Task/TaskManager.h>
+#include <BerlinRenderer/Task/ThreadPool.h>
 
 NS_RENDER_BEGIN
 
@@ -19,10 +20,18 @@ Context::Context()
 		scene_manager_instance_ = new SceneManager();
 
 	if (!resource_manager_)
+	{
 		resource_manager_ = new ResourceManager();
+		resource_manager_->Init();
+	}
 
 	if (!render_engine_instance_)
 		render_engine_instance_ = new RenderEngine();
+
+	if (task_manager_instance_ == nullptr)
+	{
+		task_manager_instance_ = new TaskManager(new ThreadPool(std::thread::hardware_concurrency() * 2));
+	}
 }
 
 Context::~Context()
@@ -79,6 +88,11 @@ ResourceManager& Context::ResourceManagerInstance()
 SceneManager& Context::SceneManagerInstance()
 {
 	return *scene_manager_instance_;
+}
+
+TaskManager& Context::TaskManagerInstance()
+{
+	return *task_manager_instance_;
 }
 
 NS_RENDER_END

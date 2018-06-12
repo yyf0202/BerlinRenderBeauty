@@ -18,24 +18,18 @@ static string_t _s_def_frag = "#version 330 core\n"
 
 NS_RENDER_BEGIN
 
-error_t ShaderLoader::Startup()
+void ShaderLoader::BeginTask()
 {
-	auto tmp = _loadByContent(_s_def_vert, _s_def_frag);
-	if (tmp == nullptr) return -1;
-
-	default_ = tmp.get();
-
-	shaders_["default"] = tmp;
-
-	return 0;
+	resource_ = Load(path_);
 }
 
-
-shared_ptr_t<Shader> ShaderLoader::Load(string_t path)
+void ShaderLoader::EndTask()
 {
-	auto fd = shaders_.find(path);
-	if (fd != shaders_.end()) return fd->second;
+	loaded_(resource_);
+}
 
+Shader* ShaderLoader::Load(string_t path)
+{
 	do
 	{
 		auto content_vert = FileManager::GetInstance().Read(path + ".vert");
@@ -44,32 +38,17 @@ shared_ptr_t<Shader> ShaderLoader::Load(string_t path)
 		auto content_frag = FileManager::GetInstance().Read(path + ".frag");
 		if (content_frag == "") break;
 
-		auto sd = _loadByContent(content_vert, content_frag);
-		if (sd == nullptr) break;
-
-		shaders_[path] = sd;
-
-		return sd;
-	} while (false);
-
-	return shared_ptr_t<Shader>(default_);
-}
-
-shared_ptr_t<Shader> ShaderLoader::_loadByContent(string_t& vert, string_t& frag)
-{
-	do
-	{
 		auto sd = new Shader();
-		if (sd->Compile(vert, frag)) break;
+		if (sd->Compile(content_vert, content_frag)) break;
 
 		if (sd->Attach()) break;
 
 		if (sd->Link()) break;
 
-		return shared_ptr_t<Shader>(sd);
+		return sd;
 	} while (false);
 
-	return shared_ptr_t<Shader>(default_);
+	return nullptr;
 }
 
 NS_RENDER_END

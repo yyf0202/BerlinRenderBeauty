@@ -141,7 +141,6 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c" />
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\Timer_win.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
@@ -163,6 +162,8 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
@@ -172,7 +173,6 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Noncopyable.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\PreDeclare.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Singleton.h" />
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Timer.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Utils.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\BerlinRenderer.h" />
@@ -186,7 +186,9 @@
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Image.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\IResource.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ImageLoader.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\Loader.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\ShaderLoader.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material\Material.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.h" />
@@ -198,8 +200,12 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneManager.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ITask.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Src\BerlinRenderer\Resources\ResourceManager.inc" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

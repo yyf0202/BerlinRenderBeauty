@@ -34,6 +34,9 @@
     <Filter Include="Profiler">
       <UniqueIdentifier>{40b999d9-ca55-48a2-bbd4-3091773d325e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{7c131259-bdb7-4ce1-9a84-bfed4108c2c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -108,8 +111,11 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp">
       <Filter>Profiler</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.cpp">
-      <Filter>Base</Filter>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.cpp">
+      <Filter>Task</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,11 +213,26 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.h">
       <Filter>Profiler</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\ThreadPool.h">
-      <Filter>Base</Filter>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ITask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\IResource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\Loader.h">
+      <Filter>Resources\Loader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="..\..\..\Src\BerlinRenderer\Resources\ResourceManager.inc">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

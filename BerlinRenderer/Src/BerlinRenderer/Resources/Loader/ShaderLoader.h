@@ -4,24 +4,22 @@
 #include <BerlinRenderer/Base/Singleton.h>
 
 #include "../Material/Shader.h"
+#include "Loader.h"
 
 NS_RENDER_BEGIN
 
-class ShaderLoader : public Singleton<ShaderLoader>
+class ShaderLoader : public Loader<Shader>
 {
 public:
-	shared_ptr_t<Shader> Load(string_t path);
+	ShaderLoader(string_t path, function_t<void(Shader*)> loaded) : Loader(path, loaded) { }
 
-	error_t Startup();
+	static Shader* Load(string_t path);
 
-private:
-	shared_ptr_t<Shader> _loadByContent(string_t& vert, string_t& frag);
-
-private:
-	Shader* default_ = nullptr;
+	virtual void BeginTask() override;
+	virtual void EndTask() override;
 
 private:
-	hash_t<string_t, shared_ptr_t<Shader>> shaders_;
+	static Shader* default_;
 };
 
 NS_RENDER_END

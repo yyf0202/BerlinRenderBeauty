@@ -15,6 +15,7 @@ class App;
 class RenderEngine;
 class ResourceManager;
 class SceneManager;
+class TaskManager;
 
 class Context : Noncopyable, public Singleton<Context>
 {
@@ -31,6 +32,7 @@ public:
 	RenderEngine& RenderEngineInstance();
 	ResourceManager& ResourceManagerInstance();
 	SceneManager& SceneManagerInstance();
+	TaskManager& TaskManagerInstance();
 
 private:
 
@@ -38,6 +40,7 @@ private:
 	RenderEngine* render_engine_instance_ = nullptr;
 	ResourceManager* resource_manager_ = nullptr;
 	SceneManager* scene_manager_instance_ = nullptr;
+	TaskManager* task_manager_instance_ = nullptr;
 };
 
 NS_RENDER_END

@@ -5,10 +5,9 @@
 
 NS_RENDER_BEGIN
 
-class RENDER_API Texture2D : public Resource
+class RENDER_API Texture2D
 {
 public:
-
 	Texture2D();
 
 	error_t Load(string_t name);
@@ -28,6 +27,10 @@ public:
 
 	uint32_t GetDataType() const { return dataType_; }
 	void SetDataType(uint32_t type) { dataType_ = type; }
+	GLuint GetGPUOjbectId() const { return id_; }
+
+protected:
+	GLuint id_;
 
 private:
 	error_t Init();

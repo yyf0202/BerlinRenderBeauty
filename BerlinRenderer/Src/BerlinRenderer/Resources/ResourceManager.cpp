@@ -18,6 +18,11 @@ ResourceManager::~ResourceManager()
 {
 }
 
+void ResourceManager::Init()
+{
+	default_ = Load<Shader>("./Resources/Shaders/default");
+}
+
 #pragma region Load Mesh
 error_t ResourceManager::LoadMesh(string_t path, vector_t<Mesh>& meshed)
 {

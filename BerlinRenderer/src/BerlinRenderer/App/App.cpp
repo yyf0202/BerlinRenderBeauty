@@ -11,6 +11,7 @@
 #include <BerlinRenderer/Resources/Loader/ShaderLoader.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
 #include <BerlinRenderer/Base/Timer.h>
+#include <BerlinRenderer/Task/TaskManager.h>
 
 NS_RENDER_BEGIN
 
@@ -50,7 +51,7 @@ void App::Create()
 	// Define the viewport dimensions
 	glViewport(0, 0, window_width, window_height);
 
-	ShaderLoader::GetInstance().Startup();
+	//ShaderLoader::GetInstance().Startup();
 
 	Startup();
 }
@@ -95,6 +96,7 @@ void App::Run()
 	frameTime_ = 1000 / FPS_;
 
 	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
+	auto& taskMgr = Context::GetInstance().TaskManagerInstance();
 
 	Timer timer;
 
@@ -106,6 +108,8 @@ void App::Run()
 
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
 		glfwPollEvents();
+
+		taskMgr.Update();
 
 		// Render
 		// Clear the colorbuffer

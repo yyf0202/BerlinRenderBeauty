@@ -28,6 +28,8 @@
 #include <stack>
 #include <queue>
 #include <thread>
+#include <mutex>
+#include <functional>
 
 #include "Noncopyable.h"
 #include <glad/glad.h>
@@ -36,6 +38,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "MacroUtils.h"
 #pragma endregion
 
 
@@ -65,6 +68,9 @@ typedef glm::vec2		vec2_t;
 typedef glm::vec3		vec3_t;
 typedef glm::mat4		mat4_t;
 
+typedef std::thread		thread_t;
+typedef std::mutex		mutex_t;
+
 #define vector_t		std::vector
 #define hash_t			std::unordered_map
 #define list_t			std::list
@@ -72,6 +78,8 @@ typedef glm::mat4		mat4_t;
 #define queue_t			std::queue
 #define shared_ptr_t	std::shared_ptr
 #define unique_ptr_t	std::unique_ptr
+#define function_t		std::function
+#define bind_t			std::bind
 #pragma endregion
 
 
