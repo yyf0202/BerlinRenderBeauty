@@ -46,10 +46,10 @@ error_t Shader::_compile(string_t code, uint32_t type)
 
 		GLint len;
 		GLchar* log;
-		glGetShaderiv(m_shader_id, GL_INFO_LOG_LENGTH, &len);
+		glGetShaderiv(shader_ids_[type], GL_INFO_LOG_LENGTH, &len);
 
 		log = new GLchar[len];
-		glGetShaderInfoLog(m_shader_id, len, &len, log);
+		glGetShaderInfoLog(shader_ids_[type], len, &len, log);
 		GL_LOG("compile log ='%s '\n", log);
 		delete log;
 #endif
@@ -74,6 +74,9 @@ error_t Shader::Link()
 {
 	glLinkProgram(progamId_);
 
+	glDeleteShader(shader_ids_[0]);
+	glDeleteShader(shader_ids_[1]);
+
 	GLint linked;
 	glGetProgramiv(progamId_, GL_LINK_STATUS, &linked);
 
@@ -94,8 +97,6 @@ error_t Shader::Attach()
 	glAttachShader(progamId_, shader_ids_[0]);
 	glAttachShader(progamId_, shader_ids_[1]);
 
-	glDeleteShader(shader_ids_[0]);
-	glDeleteShader(shader_ids_[1]);
 
 	return 0;
 }

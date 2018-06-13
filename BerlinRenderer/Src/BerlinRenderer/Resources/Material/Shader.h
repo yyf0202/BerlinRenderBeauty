@@ -32,5 +32,8 @@ private:
 	GLuint shader_ids_[2] = { 0 };
 	GLuint progamId_ = 0;
 };
+
+
+
 NS_RENDER_END
 #endif

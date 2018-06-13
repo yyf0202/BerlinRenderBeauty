@@ -96,3 +96,8 @@ typedef glm::mat4		mat4_t;
 
 
 
+const std::string MainTexture = "mainTexture";
+
+const int VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT = 0;
+const int VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT = 1;
+const int VERTEX_SHADER_ATTRIBUTE_UV_LAYOUT = 2;
