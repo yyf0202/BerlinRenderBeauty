@@ -5,6 +5,11 @@
 #include <BerlinRenderer/Base/Config.h>
 #include <BerlinRenderer/Base/Context.h>
 
+#include <BerlinRenderer/Task/ThreadPool.h>
+#include <BerlinRenderer/Task/TaskManager.h>
+#include <BerlinRenderer/Task/ITask.h>
+
+
 #include <BerlinRenderer/Scene Manager/SceneObject.h>
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 

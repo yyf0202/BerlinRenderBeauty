@@ -1,6 +1,8 @@
 
 #include "Texture2D.h"
-#include "Loader/ImageLoader.h"
+#include "ResourceManager.h"
+#include <BerlinRenderer/Base/Context.h>
+#include "Image.h"
 
 NS_RENDER_BEGIN
 
@@ -11,13 +13,14 @@ Texture2D::Texture2D()
 
 error_t Texture2D::Load(string_t name)
 {
-	auto img = ImageLoader::GetInstance().Load(name);
+	auto img = Context::GetInstance().ResourceManagerInstance().Load<Image>(name);
 
 	// TODO: error
 	if (img == nullptr) return -1;
 
+	Bind();
 	SetData(img->GetData(), 0, 0, width_, height_);
-
+	CHECK_OPENGL();
 	return 0;
 }
 

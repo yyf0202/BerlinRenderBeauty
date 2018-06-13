@@ -1,11 +1,15 @@
 #pragma once
 
 #include <BerlinRenderer/Base/Config.h>
+#include "IResource.h"
 
 NS_RENDER_BEGIN
 
-class RENDER_API Resource : std::enable_shared_from_this<Resource> // TODO: from object?
+template<typename _TLoader>
+class RENDER_API Resource : public IResource
 {
+public:
+	typedef _TLoader Loader;
 public:
 	GLuint GetGPUOjbectId() const { return id_; }
 

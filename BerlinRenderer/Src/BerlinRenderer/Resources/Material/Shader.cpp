@@ -40,19 +40,12 @@ error_t Shader::_compile(string_t code, uint32_t type)
 
 	if (compiled == GL_FALSE)
 	{
-#ifdef OPEN_GL_LOG
 		GL_LOG("shader source: %s\n", code);
 		GL_LOG("==========shader source end=======\n");
 
-		GLint len;
-		GLchar* log;
-		glGetShaderiv(shader_ids_[type], GL_INFO_LOG_LENGTH, &len);
-
-		log = new GLchar[len];
-		glGetShaderInfoLog(shader_ids_[type], len, &len, log);
-		GL_LOG("compile log ='%s '\n", log);
-		delete log;
-#endif
+		static GLchar infoLog[512];
+		glGetProgramInfoLog(shader_ids_[type], 512, nullptr, infoLog);
+		printf(infoLog);
 		return -1;
 }
 
@@ -74,9 +67,6 @@ error_t Shader::Link()
 {
 	glLinkProgram(progamId_);
 
-	glDeleteShader(shader_ids_[0]);
-	glDeleteShader(shader_ids_[1]);
-
 	GLint linked;
 	glGetProgramiv(progamId_, GL_LINK_STATUS, &linked);
 
@@ -85,7 +75,8 @@ error_t Shader::Link()
 		//#ifdef OPEN_GL_LOG
 		static GLchar infoLog[512];
 		glGetProgramInfoLog(progamId_, 512, nullptr, infoLog);
-		std::cout << "link log ='%s '\n" << infoLog;
+		printf(infoLog);
+		//std::cout << "link log ='%s '\n" << infoLog;
 		//#endif
 		return -1;
 	}
@@ -97,6 +88,10 @@ error_t Shader::Attach()
 	glAttachShader(progamId_, shader_ids_[0]);
 	glAttachShader(progamId_, shader_ids_[1]);
 
+	glDeleteShader(shader_ids_[0]);
+	glDeleteShader(shader_ids_[1]);
+
+	CHECK_OPENGL();
 
 	return 0;
 }
@@ -109,7 +104,7 @@ void Shader::CheckError(GLuint shader, GLbyte status)
 	if (!success)
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		//std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
 	}
 }
 

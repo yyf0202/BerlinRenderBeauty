@@ -1,7 +1,8 @@
 
 #include "Material.h"
 #include "Shader.h"
-#include "../Loader/ShaderLoader.h"
+#include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Resources/ResourceManager.h>
 
 NS_RENDER_BEGIN
 
@@ -9,9 +10,9 @@ Material::Material()
 {
 }
 
-Material::Material(string_t path)
+Material::Material(Shader* shader)
+	: shader_(shader)
 {
-	SetShaderPath(path);
 }
 
 Material::~Material()
@@ -20,14 +21,17 @@ Material::~Material()
 
 Material& Material::GetDefaultMaterial()
 {
-	static Material def("default");
+	static Material def(Context::GetInstance().ResourceManagerInstance().GetDefaultShader());
 	return def;
 }
 
 void Material::SetShaderPath(string_t path)
 {
-	shader_ = ShaderLoader::GetInstance().Load(path).get();
-	if (shader_ == nullptr) return;
+	shader_ = Context::GetInstance().ResourceManagerInstance().Load<Shader>(path);
+	if (shader_ == nullptr)
+	{
+		shader_ = Context::GetInstance().ResourceManagerInstance().GetDefaultShader();
+	}
 }
 
 void Material::Use()

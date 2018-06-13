@@ -14,6 +14,7 @@ string_t FileManager::Read(string_t path)
 	file.open(path);
 	std::stringstream stream;
 	stream << file.rdbuf();
+	file.close();
 
 	return stream.str();
 }

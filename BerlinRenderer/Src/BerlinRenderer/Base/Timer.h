@@ -12,6 +12,7 @@ public:
 
 	void Begin();
 	void End();
+	void Reset();
 
 	uint32_t Milliseconds();
 

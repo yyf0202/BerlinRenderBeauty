@@ -1,15 +1,13 @@
-#ifndef SHADER_H
-#define SHADER_H
+#pragma once
 
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
 #include <BerlinRenderer\Base\Config.h>
+#include "../Resource.h"
 
 NS_RENDER_BEGIN
 
-class Shader
+class ShaderLoader;
+
+class Shader : public Resource<ShaderLoader>
 {
 public:
 	Shader();
@@ -36,4 +34,3 @@ private:
 
 
 NS_RENDER_END
-#endif

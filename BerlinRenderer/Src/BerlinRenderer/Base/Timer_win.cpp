@@ -29,8 +29,7 @@ Timer::~Timer()
 
 void Timer::Begin()
 {
-	LARGE_INTEGER begin = *(LARGE_INTEGER*)platform_;
-	QueryPerformanceCounter(&begin);
+	QueryPerformanceCounter((LARGE_INTEGER*)platform_);
 }
 
 void Timer::End()
@@ -38,12 +37,18 @@ void Timer::End()
 	LARGE_INTEGER now;
 	QueryPerformanceCounter(&now);
 
-	milliseconds_ = (float(now.QuadPart - (*(LARGE_INTEGER*)platform_).QuadPart)) / _s_freq.QuadPart * 1000;
+	auto begin = *(LARGE_INTEGER*)platform_;
+	milliseconds_ = (float(now.QuadPart - begin.QuadPart)) / _s_freq.QuadPart * 1000;
 }
 
 uint32_t Timer::Milliseconds()
 {
 	return milliseconds_;
+}
+
+void Timer::Reset()
+{
+	milliseconds_ = 0;
 }
 
 NS_RENDER_END

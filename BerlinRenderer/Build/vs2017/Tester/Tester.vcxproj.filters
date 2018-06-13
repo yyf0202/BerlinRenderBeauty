@@ -10,5 +10,6 @@
     <ClInclude Include="..\..\..\Tester\texture_tester.h" />
     <ClInclude Include="..\..\..\Tester\TextureRenderTester.h" />
     <ClInclude Include="..\..\..\Tester\ShapeRenderTester.h" />
+    <ClInclude Include="..\..\..\Tester\ThreadPoolTester.h" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ class Material
 {
 public:
 	Material();
-	Material(string_t path);
+	Material(Shader* shader);
 	~Material();
 
 	void SetShaderPath(string_t path);
