@@ -37,6 +37,9 @@
     <Filter Include="Task">
       <UniqueIdentifier>{7c131259-bdb7-4ce1-9a84-bfed4108c2c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Render\MeshRender">
+      <UniqueIdentifier>{6c1ff2eb-f316-4e0b-94bd-4f60524031e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -116,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.cpp">
       <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.cpp">
+      <Filter>Render\MeshRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +233,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Loader\Loader.h">
       <Filter>Resources\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.h">
+      <Filter>Render\MeshRender</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

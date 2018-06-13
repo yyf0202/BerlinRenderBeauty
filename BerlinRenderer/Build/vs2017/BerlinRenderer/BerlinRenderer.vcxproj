@@ -144,6 +144,7 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\Timer_win.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Renderer.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Renderer.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.h" />

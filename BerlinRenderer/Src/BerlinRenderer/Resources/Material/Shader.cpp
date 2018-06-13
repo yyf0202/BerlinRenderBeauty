@@ -44,10 +44,10 @@ error_t Shader::_compile(string_t code, uint32_t type)
 		GL_LOG("==========shader source end=======\n");
 
 		static GLchar infoLog[512];
-		glGetProgramInfoLog(shader_ids_[type], 512, nullptr, infoLog);
+		glGetShaderInfoLog(shader_ids_[type], 512, nullptr, infoLog);
 		printf(infoLog);
 		return -1;
-}
+	}
 
 	return 0;
 }
