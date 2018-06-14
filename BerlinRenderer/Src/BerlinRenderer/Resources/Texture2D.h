@@ -5,12 +5,12 @@
 
 NS_RENDER_BEGIN
 
-class RENDER_API Texture2D
+class RENDER_API Texture2D : Resource
 {
 public:
 	Texture2D();
 
-	error_t Load(string_t name);
+	virtual void Load(string_t name) override;
 
 	void SetData(byte_t* data, uint32_t of_x, uint32_t of_y, uint32_t width, uint32_t height);
 	void UpdateParameters();

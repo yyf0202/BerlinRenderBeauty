@@ -7,11 +7,13 @@ NS_RENDER_BEGIN
 
 class ShaderLoader;
 
-class Shader : public Resource<ShaderLoader>
+class Shader : public Resource
 {
 public:
 	Shader();
 	~Shader();
+
+	virtual void Load(string_t path) override;
 
 	void Active();
 

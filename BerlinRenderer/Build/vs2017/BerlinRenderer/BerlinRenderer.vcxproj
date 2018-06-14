@@ -157,6 +157,7 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material\Material.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material\Shader.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Mesh.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Resource.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Resources\ResourceManager.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture2D.cpp" />

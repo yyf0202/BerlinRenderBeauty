@@ -11,17 +11,17 @@ Texture2D::Texture2D()
 	Init();
 }
 
-error_t Texture2D::Load(string_t name)
+void Texture2D::Load(string_t name)
 {
 	auto img = Context::GetInstance().ResourceManagerInstance().Load<Image>(name);
 
 	// TODO: error
-	if (img == nullptr) return -1;
+	if (img == nullptr) return;
 
 	Bind();
 	SetData(img->GetData(), 0, 0, width_, height_);
 	CHECK_OPENGL();
-	return 0;
+	return;
 }
 
 error_t Texture2D::Bind()

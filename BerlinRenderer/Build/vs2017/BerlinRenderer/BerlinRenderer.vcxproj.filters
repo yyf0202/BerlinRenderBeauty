@@ -123,6 +123,9 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.cpp">
       <Filter>Render\MeshRender</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Resource.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.h">

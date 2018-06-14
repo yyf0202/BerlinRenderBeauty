@@ -5,6 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "Shader.h"
+#include "../FileManager.h"
 
 NS_RENDER_BEGIN
 
@@ -17,6 +18,27 @@ Shader::~Shader()
 {
 	glDeleteProgram(progamId_);
 	progamId_ = 0;
+}
+
+void Shader::Load(string_t path)
+{
+	do
+	{
+		auto content_vert = FileManager::GetInstance().Read(path_);
+		if (content_vert == "") break;
+
+		auto content_frag = FileManager::GetInstance().Read(path_ + ".frag");
+		if (content_frag == "") break;
+
+		auto sd = new Shader();
+		if (sd->Compile(content_vert, content_frag)) break;
+
+		if (sd->Attach()) break;
+
+		if (sd->Link()) break;
+	} while (false);
+
+	return;
 }
 
 void Shader::Active()

@@ -12,8 +12,8 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
-#include "Loader/ShaderLoader.h"
-#include "Loader/ImageLoader.h"
+#include "Material/Shader.h"
+#include "Image.h"
 
 NS_RENDER_BEGIN
 
@@ -30,7 +30,7 @@ public:
 	_Ty* Load(string_t path);
 
 	template<typename _Ty>
-	void LoadAsync(string_t path, function_t<void(_Ty*)> loaded);
+	_Ty* LoadAsync(string_t path, function_t<void(_Ty*)> loaded = nullptr);
 
 	Shader* GetDefaultShader() { return default_; }
 
