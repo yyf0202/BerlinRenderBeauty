@@ -9,12 +9,13 @@
 #include <BerlinRenderer/Task/TaskManager.h>
 #include <BerlinRenderer/Task/ITask.h>
 
+#include <BerlinRenderer/IO/FileManager.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 #include <BerlinRenderer/Scene Manager/SceneObject.h>
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 
 #include <BerlinRenderer/Resources/ResourceManager.h>
-#include <BerlinRenderer/Resources/FileManager.h>
 
 #include <BerlinRenderer/Resources/Material.h>
 #include <BerlinRenderer/Resources/Texture1D.h>

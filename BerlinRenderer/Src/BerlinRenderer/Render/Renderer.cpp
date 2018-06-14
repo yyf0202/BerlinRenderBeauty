@@ -54,7 +54,6 @@ void Renderer::Draw()
 void Renderer::SetMaterial(Material* mat)
 { 
 	mat_ = mat;
-	
 }
 
 Material* Renderer::GetMaterial()

@@ -5,7 +5,8 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "Shader.h"
-#include "FileManager.h"
+#include <BerlinRenderer/IO/FileManager.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 

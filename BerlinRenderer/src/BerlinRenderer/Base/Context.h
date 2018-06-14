@@ -16,6 +16,7 @@ class RenderEngine;
 class ResourceManager;
 class SceneManager;
 class TaskManager;
+class LoggerManager;
 
 class Context : Noncopyable, public Singleton<Context>
 {
@@ -33,6 +34,11 @@ public:
 	ResourceManager& ResourceManagerInstance();
 	SceneManager& SceneManagerInstance();
 	TaskManager& TaskManagerInstance();
+	LoggerManager& LoggerManagerInstance() { return *logger_manager_instance_; }
+
+	void Init();
+
+	bool_t IsMainThread();
 
 private:
 
@@ -41,6 +47,9 @@ private:
 	ResourceManager* resource_manager_ = nullptr;
 	SceneManager* scene_manager_instance_ = nullptr;
 	TaskManager* task_manager_instance_ = nullptr;
+	LoggerManager* logger_manager_instance_ = nullptr;
+
+	std::thread::id mainThreadId_;
 };
 
 NS_RENDER_END

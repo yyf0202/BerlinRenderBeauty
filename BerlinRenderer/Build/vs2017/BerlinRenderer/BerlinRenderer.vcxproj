@@ -142,6 +142,8 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Base\Timer_win.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\IO\FileManager.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\IO\LoggerManager.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\Camera.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\MeshRender\MeshRender.cpp" />
@@ -150,7 +152,6 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\TextureRender.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.cpp" />
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Image.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Mesh.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
@@ -176,6 +178,8 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Base\Timer.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Utils.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\BerlinRenderer.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\IO\FileManager.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\IO\LoggerManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Math\Vertex.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Profiler\Profiler.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\Camera.h" />
@@ -185,7 +189,6 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\ShapeRender\RectRender.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Render\TextureRender.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Render\TriangleDrawer.h" />
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Image.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\IResource.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Material.h" />
@@ -201,6 +204,7 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ITask.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Src\BerlinRenderer\Resources\ResourceManager.inc" />

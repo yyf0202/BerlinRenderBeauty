@@ -11,6 +11,7 @@
 #include <BerlinRenderer/Render/RenderEngine.h>
 #include <BerlinRenderer/Task/TaskManager.h>
 #include <BerlinRenderer/Task/ThreadPool.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 
@@ -32,11 +33,27 @@ Context::Context()
 	{
 		task_manager_instance_ = new TaskManager(new ThreadPool(std::thread::hardware_concurrency() * 2));
 	}
+
+	if (logger_manager_instance_ == nullptr)
+	{
+		logger_manager_instance_ = new LoggerManager();
+	}
 }
 
 Context::~Context()
 {
 
+}
+
+void Context::Init()
+{
+	mainThreadId_ = std::this_thread::get_id();
+	logger_manager_instance_->Init("./info.log");
+}
+
+bool_t Context::IsMainThread()
+{
+	return mainThreadId_ == std::this_thread::get_id();
 }
 
 void Context::Suspend()

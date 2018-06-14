@@ -85,26 +85,6 @@ typedef std::mutex		mutex_t;
 
 
 
-#include <stdio.h>
-#define LOG_ERROR	printf
-#define LOG_INFO	printf
-#define LOG_WARNING	printf
-
-#define GL_LOG		printf
-
-#define CHECK_OPENGL() \
-	do \
-	{ \
-		auto error = glGetError(); \
-		if (error != 0) \
-		{ \
-			GL_LOG("OpenGL error 0x%04X in %s %s %d\n", error, __FILE__, __FUNCTION__, __LINE__); \
-		} \
-	} \
-	while (0)
-
-
-
 const std::string MainTexture = "mainTexture";
 
 const int VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT = 0;

@@ -2,6 +2,7 @@
 #include "Texture2D.h"
 #include "ResourceManager.h"
 #include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 #include "Image.h"
 
 NS_RENDER_BEGIN

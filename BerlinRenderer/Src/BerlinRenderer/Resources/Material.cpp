@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include <BerlinRenderer/Base/Context.h>
 #include <BerlinRenderer/Resources/ResourceManager.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 

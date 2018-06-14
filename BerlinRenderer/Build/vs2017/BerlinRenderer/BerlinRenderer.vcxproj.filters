@@ -34,6 +34,12 @@
     <Filter Include="Render\MeshRender">
       <UniqueIdentifier>{6c1ff2eb-f316-4e0b-94bd-4f60524031e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{89210a10-7c1d-4477-b41d-80ca8476bd79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{5fcba000-adb4-4ac3-b5a5-c5127adac341}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Render\RenderEngine.cpp">
@@ -75,9 +81,6 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Image.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Texture1D.cpp">
       <Filter>Resources\Texture</Filter>
     </ClCompile>
@@ -113,6 +116,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Resources\Material.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\IO\FileManager.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\IO\LoggerManager.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +188,6 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Image.h">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\FileManager.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Texture3D.h">
       <Filter>Resources\Texture</Filter>
     </ClInclude>
@@ -218,6 +227,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Resources\Shader.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\IO\FileManager.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\IO\LoggerManager.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

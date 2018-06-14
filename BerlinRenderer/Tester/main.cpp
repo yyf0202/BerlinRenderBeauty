@@ -13,7 +13,7 @@ int main()
 	tester::ShapeRenderTester::Run();
 	//tester::TextureRenderTester::Run();
 	//tester::ThreadPoolTester::Run();
-	
+
 	getchar();
 
 	return 0;

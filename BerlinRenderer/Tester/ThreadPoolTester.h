@@ -30,10 +30,10 @@ namespace tester
 
 				if (r == 30)
 				{
-					printf("main thread has a big sleep \n");
+					LOG_INFO("main thread has a big sleep \n");
 					std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 					tster->locker.lock();
-					printf("main thread done task: %d  subthread done task: %d \n", main, tster->total);
+					LOG_INFO("main thread done task: %d  subthread done task: %d \n", main, tster->total);
 					tster->locker.unlock();
 				}
 			}
@@ -45,7 +45,6 @@ namespace tester
 		{
 			auto r = std::rand() % 500;
 			std::this_thread::sleep_for(std::chrono::milliseconds(r));
-			printf("%d thread run end\n", std::this_thread::get_id());
 			locker.lock();
 			total += r;
 			locker.unlock();

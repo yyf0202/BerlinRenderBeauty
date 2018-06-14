@@ -11,6 +11,7 @@
 #include <BerlinRenderer/Profiler/Profiler.h>
 #include <BerlinRenderer/Base/Timer.h>
 #include <BerlinRenderer/Task/TaskManager.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 
@@ -52,7 +53,7 @@ void App::Create()
 
 	//ShaderLoader::GetInstance().Startup();
 
-	Startup();
+
 }
 
 void App::Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode)
@@ -88,14 +89,26 @@ void App::Startup()
 
 }
 
+static void Log(string_t& msg)
+{
+	printf(msg.c_str());
+}
+
 void App::Run()
 {
 	Create();
 
 	frameTime_ = 1000 / FPS_;
 
+	Context::GetInstance().Init();
+
 	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
 	auto& taskMgr = Context::GetInstance().TaskManagerInstance();
+	auto& logger = Context::GetInstance().LoggerManagerInstance();
+
+	logger.SetLogCallback(Log);
+
+	Startup();
 
 	Timer timer;
 
@@ -118,6 +131,8 @@ void App::Run()
 		re.Refresh();
 
 		glfwSwapBuffers(glWindow_);
+
+		logger.Update();
 
 		timer.End();
 		auto milli = timer.Milliseconds();
