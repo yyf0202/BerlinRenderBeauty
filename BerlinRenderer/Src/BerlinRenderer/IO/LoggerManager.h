@@ -27,7 +27,6 @@ enum LogLevel
 	Info = 0,
 	Warning,
 	Error,
-
 	LogLevelMax,
 };
 
