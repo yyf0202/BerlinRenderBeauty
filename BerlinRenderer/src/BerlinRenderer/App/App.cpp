@@ -8,7 +8,6 @@
 
 #include <BerlinRenderer/Render/RenderEngine.h>
 #include <BerlinRenderer/Base/Context.h>
-#include <BerlinRenderer/Resources/Loader/ShaderLoader.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
 #include <BerlinRenderer/Base/Timer.h>
 #include <BerlinRenderer/Task/TaskManager.h>

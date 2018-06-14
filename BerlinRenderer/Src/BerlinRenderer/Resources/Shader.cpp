@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "Shader.h"
-#include "../FileManager.h"
+#include "FileManager.h"
 
 NS_RENDER_BEGIN
 

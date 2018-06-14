@@ -12,7 +12,7 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
-#include "Material/Shader.h"
+#include "Shader.h"
 #include "Image.h"
 
 NS_RENDER_BEGIN

@@ -1,6 +1,6 @@
 
 #include "RectRender.h"
-#include <BerlinRenderer/Resources/Material/Material.h>
+#include <BerlinRenderer/Resources/Material.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
 
 NS_RENDER_BEGIN

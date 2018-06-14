@@ -16,11 +16,12 @@
 #include <BerlinRenderer/Resources/ResourceManager.h>
 #include <BerlinRenderer/Resources/FileManager.h>
 
-#include <BerlinRenderer/Resources/Material/Material.h>
+#include <BerlinRenderer/Resources/Material.h>
 #include <BerlinRenderer/Resources/Texture1D.h>
 #include <BerlinRenderer/Resources/Texture2D.h>
 #include <BerlinRenderer/Resources/Texture3D.h>
 #include <BerlinRenderer/Resources/Image.h>
+#include <BerlinRenderer/Resources/Shader.h>
 #include <BerlinRenderer/Resources/Mesh.h>
 #include <BerlinRenderer/Resources/Resource.h>
 

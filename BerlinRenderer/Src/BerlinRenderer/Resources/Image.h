@@ -1,7 +1,6 @@
 #pragma once
 
 #include <BerlinRenderer/Base/Config.h>
-#include "Loader/ImageLoader.h"
 #include "Resource.h"
 
 NS_RENDER_BEGIN

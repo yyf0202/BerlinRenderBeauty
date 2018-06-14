@@ -1,7 +1,7 @@
 
 #include "TextureRender.h"
 #include <BerlinRenderer/Resources/Texture2D.h>
-#include <BerlinRenderer/Resources/Material/Material.h>
+#include <BerlinRenderer/Resources/Material.h>
 
 NS_RENDER_BEGIN
 
