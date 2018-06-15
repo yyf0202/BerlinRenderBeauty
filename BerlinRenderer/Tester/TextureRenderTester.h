@@ -9,7 +9,7 @@ namespace tester
 		{
 		public:
 			_TestApp() : App(string_t("TextureRenderTester")) {}
-			virtual void Startup() override
+			virtual bool_t Startup() override
 			{
 				auto obj = new SceneObject();
 				auto textRender = new TextureRender();

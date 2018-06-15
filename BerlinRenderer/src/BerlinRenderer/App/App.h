@@ -18,7 +18,6 @@ public:
 	App(string_t const & name);
 	~App();
 
-	void Create();
 	void Destroy();
 	void Suspend();
 	void Resume();
@@ -28,7 +27,13 @@ public:
 	void Run();
 	void Quit();
 
-	virtual void Startup();
+	virtual bool_t Startup();
+
+protected:
+
+
+private:
+	bool_t Init();
 
 private:
 	void Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode);
@@ -39,6 +44,9 @@ private:
 
 	uint32_t FPS_ = 60;
 	uint32_t frameTime_ = 0;
+	bool_t suspend_ = false;
+	uint32_t frames_ = 0;
+	uint32_t deltaTime_ = 0;
 };
 
 NS_RENDER_END

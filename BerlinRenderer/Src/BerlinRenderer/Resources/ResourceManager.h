@@ -24,7 +24,7 @@ public:
 	~ResourceManager();
 	error_t LoadMesh(string_t path, vector_t<Mesh>& meshes);
 
-	void Init();
+	bool_t Init();
 
 	template<typename _Ty>
 	_Ty* Load(string_t path);

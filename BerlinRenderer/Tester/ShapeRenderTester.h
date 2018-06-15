@@ -13,7 +13,7 @@ namespace tester
 		{
 		public:
 			_TestApp() : App(string_t("ShapeRenderTester")) {}
-			virtual void Startup() override
+			virtual bool_t Startup() override
 			{
 				auto obj = new SceneObject();
 				obj->SetRender(new RectRender());

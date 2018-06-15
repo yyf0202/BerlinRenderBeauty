@@ -40,9 +40,11 @@ void LoggerManager::DoLog(string_t msg)
 	}
 }
 
-void LoggerManager::Init(string_t cfg_path)
+bool_t LoggerManager::Init(string_t cfg_path)
 {
 	fopen_s(&file_, cfg_path.c_str(), "a+");
+
+	return true;
 }
 
 void LoggerManager::Update()

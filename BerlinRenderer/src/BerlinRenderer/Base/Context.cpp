@@ -17,99 +17,39 @@ NS_RENDER_BEGIN
 
 Context::Context()
 {
-	if (!scene_manager_instance_)
-		scene_manager_instance_ = new SceneManager();
-
-	if (!resource_manager_)
-	{
-		resource_manager_ = new ResourceManager();
-		resource_manager_->Init();
-	}
-
-	if (!render_engine_instance_)
-		render_engine_instance_ = new RenderEngine();
-
-	if (task_manager_instance_ == nullptr)
-	{
-		task_manager_instance_ = new TaskManager(new ThreadPool(std::thread::hardware_concurrency() * 2));
-	}
-
-	if (logger_manager_instance_ == nullptr)
-	{
-		logger_manager_instance_ = new LoggerManager();
-	}
+	scene_manager_instance_ = new SceneManager();
+	resource_manager_ = new ResourceManager();
+	render_engine_instance_ = new RenderEngine();
+	task_manager_instance_ = new TaskManager(new ThreadPool(std::thread::hardware_concurrency() * 2));
+	logger_manager_instance_ = new LoggerManager();
 }
 
 Context::~Context()
 {
-
 }
 
-void Context::Init()
+bool_t Context::Init()
 {
 	mainThreadId_ = std::this_thread::get_id();
-	logger_manager_instance_->Init("./info.log");
-}
 
-bool_t Context::IsMainThread()
-{
-	return mainThreadId_ == std::this_thread::get_id();
+	return true;
 }
 
 void Context::Suspend()
 {
-
 }
 
 void Context::Resume()
 {
-
 }
 
 void Context::DestroyAll()
 {
-	//if (scene_manager_instance_)
-	//	scene_manager_instance_->reset();
-
-	//if (resource_manager_)
-	//	resource_manager_.reset();
-
-	//if (render_engine_instance_)
-	//	render_engine_instance_.reset();
 }
 
 void Context::Destroy()
 {
-	//if (!context_instance_)
-	//{
-	//	context_instance_->DestroyAll();
-	//	context_instance_.reset();
-	//}
 }
 
-void Context::AppInstance(App& app)
-{
-	app_ = &app;
-}
-
-RenderEngine& Context::RenderEngineInstance()
-{
-	return *render_engine_instance_;
-}
-
-ResourceManager& Context::ResourceManagerInstance()
-{
-	return *resource_manager_;
-}
-
-SceneManager& Context::SceneManagerInstance()
-{
-	return *scene_manager_instance_;
-}
-
-TaskManager& Context::TaskManagerInstance()
-{
-	return *task_manager_instance_;
-}
 
 NS_RENDER_END

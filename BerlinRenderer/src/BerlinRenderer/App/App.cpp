@@ -12,8 +12,14 @@
 #include <BerlinRenderer/Base/Timer.h>
 #include <BerlinRenderer/Task/TaskManager.h>
 #include <BerlinRenderer/IO/LoggerManager.h>
+#include <BerlinRenderer/Resources/ResourceManager.h>
 
 NS_RENDER_BEGIN
+
+static void Log(string_t& msg)
+{
+	printf(msg.c_str());
+}
 
 App::App(string_t const & name)
 	: name_(name)
@@ -26,9 +32,10 @@ App::~App()
 {
 }
 
-void App::Create()
+bool_t App::Init()
 {
 	glfwInit();
+
 	// Set all the required options for GLFW
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -38,22 +45,30 @@ void App::Create()
 	glWindow_ = glfwCreateWindow(window_width, window_height, name_.c_str(), nullptr, nullptr);
 	glfwMakeContextCurrent(glWindow_);
 
-	//glfwSetFramebufferSizeCallback(glWindow_, framebuffer_size_callback);
-
-	// glad: load all OpenGL function pointers
-	// ---------------------------------------
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
-		//std::cout << "Failed to initialize GLAD" << std::endl;
-		return ;
+		LOG_ERROR("Failed to initialize GLAD");
+		return false;
 	}
 
-	// Define the viewport dimensions
 	glViewport(0, 0, window_width, window_height);
 
-	//ShaderLoader::GetInstance().Startup();
+	frameTime_ = 1000 / FPS_;
 
+	bool_t ret = true;
 
+	ret |= Context::GetInstance().Init();
+	if (!ret) return ret;
+
+	Context::GetInstance().SetAppInstance(this);
+
+	ret |= Context::GetInstance().ResourceManagerInstance().Init();
+	if (!ret) return ret;
+
+	ret |= Context::GetInstance().LoggerManagerInstance().Init("./info.log");
+	if (!ret) return ret;
+
+	Context::GetInstance().LoggerManagerInstance().SetLogCallback(Log);
 }
 
 void App::Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode)
@@ -66,49 +81,42 @@ void App::Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_
 
 void App::Destroy()
 {
-
 }
 
 void App::Suspend()
 {
-
 }
 
 void App::Resume()
 {
-
 }
 
 void App::Refresh()
 {
-
 }
 
-void App::Startup()
+bool_t App::Startup()
 {
-
-}
-
-static void Log(string_t& msg)
-{
-	printf(msg.c_str());
+	return true;
 }
 
 void App::Run()
 {
-	Create();
+	if (!Init())
+	{
+		LOG_ERROR("app init error");
+		return;
+	}
 
-	frameTime_ = 1000 / FPS_;
+	if (!Startup())
+	{
+		LOG_ERROR("app startup error");
+		return;
+	}
 
-	Context::GetInstance().Init();
-
-	RenderEngine& re = Context::GetInstance().RenderEngineInstance();
+	auto& renderMgr = Context::GetInstance().RenderEngineInstance();
 	auto& taskMgr = Context::GetInstance().TaskManagerInstance();
-	auto& logger = Context::GetInstance().LoggerManagerInstance();
-
-	logger.SetLogCallback(Log);
-
-	Startup();
+	auto& loggerMgr = Context::GetInstance().LoggerManagerInstance();
 
 	Timer timer;
 
@@ -116,29 +124,41 @@ void App::Run()
 	{
 		timer.Begin();
 
-		CpuRegion _region("App::Run");
+		if (!suspend_)
+		{
+			CpuRegion _region("App::Run");
 
-		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
-		glfwPollEvents();
+			++frames_;
 
-		taskMgr.Update();
+			// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
+			glfwPollEvents();
 
-		// Render
-		// Clear the colorbuffer
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			taskMgr.Update();
 
-		re.Refresh();
+			// Render
+			// Clear the colorbuffer
+			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glfwSwapBuffers(glWindow_);
+			renderMgr.Refresh();
 
-		logger.Update();
+			glfwSwapBuffers(glWindow_);
+
+			loggerMgr.Update();
+		}
 
 		timer.End();
-		auto milli = timer.Milliseconds();
-		if (milli >= frameTime_) continue;
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(frameTime_ - milli));
+		auto milli = timer.Milliseconds();
+		if (milli >= frameTime_)
+		{
+			deltaTime_ = milli;
+		}
+		else
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(frameTime_ - milli));
+			deltaTime_ = frameTime_;
+		}
 	}
 
 	glfwTerminate();

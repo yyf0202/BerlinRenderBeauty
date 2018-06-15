@@ -73,7 +73,7 @@ public:
 		DoLog(s_LevelInfo[LogLevel::Error] + StringUtil::Format(msg.c_str(), args...) + "\n");
 	}
 
-	void Init(string_t cfg_path);
+	bool_t Init(string_t cfg_path);
 	void Update();
 
 	void SetLogCallback(function_t<void(string_t&)> callback) { callback_ = callback; }

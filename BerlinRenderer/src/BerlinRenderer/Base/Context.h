@@ -24,21 +24,22 @@ public:
 	Context();
 	~Context();
 
-	static void Destroy();
+	bool_t Init();
 	void Suspend();
 	void Resume();
 	void DestroyAll();
-	void AppInstance(App& app);
+	static void Destroy();
 
-	RenderEngine& RenderEngineInstance();
-	ResourceManager& ResourceManagerInstance();
-	SceneManager& SceneManagerInstance();
-	TaskManager& TaskManagerInstance();
-	LoggerManager& LoggerManagerInstance() { return *logger_manager_instance_; }
+	inline void AppInstance(App& app) { app_ = &app; }
+	inline RenderEngine& RenderEngineInstance() { return *render_engine_instance_;	}
+	inline ResourceManager& ResourceManagerInstance() { return *resource_manager_;	}
+	inline SceneManager& SceneManagerInstance() { return *scene_manager_instance_;	}
+	inline TaskManager& TaskManagerInstance() { return *task_manager_instance_; }
+	inline LoggerManager& LoggerManagerInstance() { return *logger_manager_instance_; }
+	inline bool_t IsMainThread() { return mainThreadId_ == std::this_thread::get_id(); }
 
-	void Init();
-
-	bool_t IsMainThread();
+protected:
+	void SetAppInstance(App* app) { app_ = app; }
 
 private:
 
@@ -50,6 +51,8 @@ private:
 	LoggerManager* logger_manager_instance_ = nullptr;
 
 	std::thread::id mainThreadId_;
+
+	friend App;
 };
 
 NS_RENDER_END

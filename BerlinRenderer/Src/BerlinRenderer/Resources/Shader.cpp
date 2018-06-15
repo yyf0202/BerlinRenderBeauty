@@ -127,7 +127,7 @@ void Shader::CheckError(GLuint shader, GLbyte status)
 	if (!success)
 	{
 		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		//std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		LOG_ERROR("shader compile error %s", infoLog);
 	}
 }
 

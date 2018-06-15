@@ -18,9 +18,10 @@ ResourceManager::~ResourceManager()
 {
 }
 
-void ResourceManager::Init()
+bool_t ResourceManager::Init()
 {
 	default_ = Load<Shader>("./Resources/Shaders/default");
+	return default_ != nullptr;
 }
 
 #pragma region Load Mesh
