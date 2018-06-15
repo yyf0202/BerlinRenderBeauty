@@ -42,6 +42,7 @@ public:
 
 	inline Renderer* GetRenderer() { return renderer_;	}
 	inline void SetRender(Renderer* renderer) { renderer_ = renderer; }
+	inline void Set(Mesh mesh) { mesh_data_ = mesh; }
 
 protected:
 	SceneObject * parent_;

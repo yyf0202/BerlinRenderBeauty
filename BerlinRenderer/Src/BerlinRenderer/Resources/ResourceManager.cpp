@@ -12,7 +12,7 @@ NS_RENDER_BEGIN
 
 ResourceManager::ResourceManager()
 {
-	
+
 }
 
 
@@ -191,11 +191,7 @@ int32_t ResourceManager::GetLoadedTexture(aiString str)
 {
 	for (uint32_t j = 0; j < textures_loaded.size(); j++)
 	{
-		// TODO:
-		//if (std::strcmp(textures_loaded[j].path.data(), str.C_Str()) == 0)
-		//{
-		//	return j;
-		//}
+
 	}
 	return -1;
 }
