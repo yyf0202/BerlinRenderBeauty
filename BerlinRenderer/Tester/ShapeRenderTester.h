@@ -17,14 +17,10 @@ namespace tester
 			{
 				auto obj = new SceneObject();
 				obj->SetRender(new RectRender());
-				auto& material = Material::GetDefaultMaterial();
-				obj->GetRenderer()->SetMaterial(&material);
 
 				Context::GetInstance().SceneManagerInstance().AddSceneObject(shared_ptr_t<SceneObject>(obj));
 
-				Context::GetInstance().LoggerManagerInstance().LogInfo("hahaha1");
-				Context::GetInstance().LoggerManagerInstance().LogWarning("hahaha2");
-				Context::GetInstance().LoggerManagerInstance().LogError("hahaha3");
+				return true;
 			}
 		};
 

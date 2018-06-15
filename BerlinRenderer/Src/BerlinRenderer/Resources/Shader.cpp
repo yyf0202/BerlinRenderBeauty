@@ -23,20 +23,20 @@ Shader::~Shader()
 
 void Shader::Load(string_t path)
 {
+	path_ = path;
 	do
 	{
-		auto content_vert = FileManager::GetInstance().Read(path_);
+		auto content_vert = FileManager::GetInstance().Read(path_ + ".vert");
 		if (content_vert == "") break;
 
 		auto content_frag = FileManager::GetInstance().Read(path_ + ".frag");
 		if (content_frag == "") break;
 
-		auto sd = new Shader();
-		if (sd->Compile(content_vert, content_frag)) break;
+		if (Compile(content_vert, content_frag)) break;
 
-		if (sd->Attach()) break;
+		if (Attach()) break;
 
-		if (sd->Link()) break;
+		if (Link()) break;
 	} while (false);
 
 	return;
@@ -63,12 +63,9 @@ error_t Shader::_compile(string_t code, uint32_t type)
 
 	if (compiled == GL_FALSE)
 	{
-		GL_LOG("shader source: %s\n", code);
-		GL_LOG("==========shader source end=======\n");
-
 		static GLchar infoLog[512];
 		glGetShaderInfoLog(shader_ids_[type], 512, nullptr, infoLog);
-		printf(infoLog);
+		LOG_ERROR("link shader error %s", infoLog);
 		return -1;
 	}
 
@@ -95,12 +92,10 @@ error_t Shader::Link()
 
 	if (!linked)
 	{
-		//#ifdef OPEN_GL_LOG
 		static GLchar infoLog[512];
 		glGetProgramInfoLog(progamId_, 512, nullptr, infoLog);
-		printf(infoLog);
-		//std::cout << "link log ='%s '\n" << infoLog;
-		//#endif
+		LOG_ERROR("link shader error %s", infoLog);
+
 		return -1;
 	}
 	return 0;
@@ -122,7 +117,7 @@ error_t Shader::Attach()
 void Shader::CheckError(GLuint shader, GLbyte status)
 {
 	GLint success;
-	GLchar infoLog[512];
+	static char infoLog[512];
 	glGetShaderiv(shader, status, &success);
 	if (!success)
 	{

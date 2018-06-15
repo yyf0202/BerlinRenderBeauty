@@ -20,18 +20,12 @@ Material::~Material()
 {
 }
 
-Material& Material::GetDefaultMaterial()
-{
-	static Material def(Context::GetInstance().ResourceManagerInstance().GetDefaultShader());
-	return def;
-}
-
 void Material::SetShaderPath(string_t path)
 {
 	shader_ = Context::GetInstance().ResourceManagerInstance().Load<Shader>(path);
 	if (shader_ == nullptr)
 	{
-		shader_ = Context::GetInstance().ResourceManagerInstance().GetDefaultShader();
+		LOG_WARNING("load shader %s failed", path.c_str());
 	}
 }
 

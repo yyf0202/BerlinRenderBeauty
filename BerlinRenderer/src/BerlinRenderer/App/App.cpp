@@ -69,6 +69,8 @@ bool_t App::Init()
 	if (!ret) return ret;
 
 	Context::GetInstance().LoggerManagerInstance().SetLogCallback(Log);
+
+	return ret;
 }
 
 void App::Key_Callback(GLFWwindow* window, int32_t key, int32_t scancode, int32_t action, int32_t mode)

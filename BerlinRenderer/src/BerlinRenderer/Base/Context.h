@@ -18,6 +18,12 @@ class SceneManager;
 class TaskManager;
 class LoggerManager;
 
+#define ResourceMgr()	RENDER Context::GetInstance().ResourceManagerInstance()
+#define SceneMgr()		RENDER Context::GetInstance().SceneManagerInstance()
+#define RenderMgr()		RENDER Context::GetInstance().RenderEngineInstance()
+#define TaskMgr()		RENDER Context::GetInstance().TaskManagerInstance()
+#define LoggerMgr()		RENDER Context::GetInstance().LoggerManagerInstance()
+
 class Context : Noncopyable, public Singleton<Context>
 {
 public:

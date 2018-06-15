@@ -17,6 +17,8 @@
 
 NS_RENDER_BEGIN
 
+class Material;
+
 class ResourceManager
 {
 public:
@@ -32,7 +34,7 @@ public:
 	template<typename _Ty>
 	_Ty* LoadAsync(string_t path, function_t<void(_Ty*)> loaded = nullptr);
 
-	Shader* GetDefaultShader() { return default_; }
+	Material* GetDefaultMaterial(){ return defaultMaterial_; }
 
 private:
 	error_t ProcessMesh(aiMesh& mesh, const aiScene& scene, Mesh& ms);
@@ -46,6 +48,7 @@ private:
 	hash_t<string_t, IResource*> resources_;
 
 	Shader* default_ = nullptr;
+	Material* defaultMaterial_ = nullptr;
 };
 
 #include "ResourceManager.inc"

@@ -21,8 +21,6 @@ public:
 	void SetFloat(const std::string &name, float value) const;
 	void SetMat4(const std::string &name, const glm::mat4 &mat) const;
 
-	static Material& GetDefaultMaterial();
-
 private:
 	Shader * shader_ = nullptr;
 };

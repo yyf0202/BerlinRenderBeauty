@@ -7,6 +7,8 @@
 #include "Renderer.h"
 
 #include <BerlinRenderer/Resources/Material.h>
+#include <BerlinRenderer/Base/Context.h>
+#include <BerlinRenderer/Resources/ResourceManager.h>
 
 NS_RENDER_BEGIN
 
@@ -58,7 +60,7 @@ void Renderer::SetMaterial(Material* mat)
 
 Material* Renderer::GetMaterial()
 {
-	return mat_ == nullptr ? &Material::GetDefaultMaterial() : mat_;
+	return mat_ == nullptr ? ResourceMgr().GetDefaultMaterial() : mat_;
 }
 
 NS_RENDER_END

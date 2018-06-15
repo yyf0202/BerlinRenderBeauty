@@ -27,6 +27,7 @@ void Texture2D::Load(string_t name)
 
 error_t Texture2D::Bind()
 {
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, id_);
 	UpdateParameters();
 

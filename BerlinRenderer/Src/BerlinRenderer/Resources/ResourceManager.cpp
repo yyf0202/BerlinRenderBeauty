@@ -5,6 +5,8 @@
 ///////////////////////////////////////////////////////////////////
 
 #include "ResourceManager.h"
+#include <BerlinRenderer/IO/LoggerManager.h>
+#include "Material.h"
 
 NS_RENDER_BEGIN
 
@@ -20,8 +22,12 @@ ResourceManager::~ResourceManager()
 
 bool_t ResourceManager::Init()
 {
-	default_ = Load<Shader>("./Resources/Shaders/default");
-	return default_ != nullptr;
+	auto path = "./Resources/Shaders/default";
+
+	defaultMaterial_ = new Material();
+	defaultMaterial_->SetShaderPath(path);
+
+	return true;
 }
 
 #pragma region Load Mesh

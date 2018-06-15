@@ -22,7 +22,7 @@ public:
 	error_t Bind();
 
 	// TODO:
-	uint32_t GetFormat() const { return 0; }
+	uint32_t GetFormat() const { return format_; }
 	void SetFormat(uint32_t format) { format_ = format; }
 
 	uint32_t GetDataType() const { return dataType_; }
