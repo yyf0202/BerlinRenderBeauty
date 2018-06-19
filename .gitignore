@@ -3,3 +3,4 @@ BerlinRenderer/Build/vs2017/.vs/*
 BerlinRenderer/bin/*
 BerlinRenderer/lib/*
 *.user
+*.log
