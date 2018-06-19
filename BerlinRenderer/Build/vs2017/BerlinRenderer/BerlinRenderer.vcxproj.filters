@@ -126,7 +126,7 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="MeshUtils.cpp">
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\MeshUtils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
@@ -240,7 +240,7 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="MeshUtils.h">
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\MeshUtils.h">
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,7 +21,9 @@ void Texture2D::Load(string_t name)
 
 	Bind();
 	SetData(img->GetData(), 0, 0, width_, height_);
+	glBindTexture(GL_TEXTURE_2D, 0);
 	CHECK_OPENGL();
+
 	return;
 }
 

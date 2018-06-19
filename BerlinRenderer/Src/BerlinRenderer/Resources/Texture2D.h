@@ -30,7 +30,7 @@ public:
 	GLuint GetGPUOjbectId() const { return id_; }
 
 protected:
-	GLuint id_;
+	GLuint id_ = 0;
 
 private:
 	error_t Init();

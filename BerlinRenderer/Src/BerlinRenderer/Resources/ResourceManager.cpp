@@ -38,8 +38,7 @@ error_t ResourceManager::LoadMesh(string_t path, vector_t<Mesh>& meshed)
 
 	if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) // if is Not Zero
 	{
-		cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << endl;
-		// TODO:
+		LOG_ERROR("ERROR::ASSIMP:: %s", importer.GetErrorString());
 		return -1;
 	}
 

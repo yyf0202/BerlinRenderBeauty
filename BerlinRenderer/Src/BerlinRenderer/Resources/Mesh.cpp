@@ -15,6 +15,11 @@ Mesh::Mesh(vector<Vertex> vertices, vector<GLuint> indices, vector<Texture2D> te
 	this->setupMesh();
 }
 
+void Mesh::Load(string_t name)
+{
+
+}
+
 void Mesh::setupMesh()
 {
 	//gen vao

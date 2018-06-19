@@ -14,13 +14,13 @@ namespace tester
 				auto obj = new SceneObject();
 				auto textRender = new TextureRender();
 				obj->SetRender(textRender);
-				//auto material = new Material();
-				//material->SetShaderPath("./Resources/Shaders/diffuse");
-				//obj->GetRenderer()->SetMaterial(material);
+				auto material = new Material();
+				material->SetShaderPath("./Resources/Shaders/texture");
+				obj->GetRenderer()->SetMaterial(material);
 				auto text = new Texture2D();
-				text->SetSize(137, 105);
-				text->SetFormat(GL_RGBA);
-				text->Load("./Resources/Textures/test.png");
+				text->SetSize(204, 217);
+				text->SetFormat(GL_RGB);
+				text->Load("./Resources/Textures/testjpg.jpg");
 				textRender->SetTexture(text);
 
 

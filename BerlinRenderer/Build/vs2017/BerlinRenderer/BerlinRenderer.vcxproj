@@ -165,8 +165,8 @@
     <ClCompile Include="..\..\..\src\BerlinRenderer\Scene Manager\SceneObject.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.cpp" />
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\MeshUtils.cpp" />
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.cpp" />
-    <ClCompile Include="MeshUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
@@ -205,8 +205,8 @@
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ITask.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\TaskManager.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Task\ThreadPool.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\MeshUtils.h" />
     <ClInclude Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.h" />
-    <ClInclude Include="MeshUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Src\BerlinRenderer\Resources\ResourceManager.inc" />

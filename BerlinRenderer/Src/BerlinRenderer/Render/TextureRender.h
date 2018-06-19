@@ -9,6 +9,7 @@ class Texture2D;
 class RENDER_API TextureRender : public Renderer
 {
 public:
+	TextureRender();
 	void Draw() override;
 
 	void SetTexture(Texture2D* tex);
@@ -16,6 +17,9 @@ public:
 
 private:
 	Texture2D* tex_;
+	GLuint vao_ = 0;
+	GLuint vbo_ = 0;
+	GLuint ebo_ = 0;
 };
 
 NS_RENDER_END

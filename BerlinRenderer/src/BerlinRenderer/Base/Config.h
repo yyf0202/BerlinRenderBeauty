@@ -87,7 +87,12 @@ typedef std::mutex		mutex_t;
 
 const std::string MainTexture = "mainTexture";
 
-const int VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT = 0;
-const int VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT = 1;
-const int VERTEX_SHADER_ATTRIBUTE_UV_LAYOUT = 2;
-const int VERTEX_SHADER_ATTRIBUTE_NORMAL_LAYOUT = 3;
+static const int VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT	= 0;
+static const int VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT		= 1;
+static const int VERTEX_SHADER_ATTRIBUTE_UV_LAYOUT			= 2;
+static const int VERTEX_SHADER_ATTRIBUTE_NORMAL_LAYOUT		= 3;
+
+static const char* VERTEX_SHADER_ATTRIBUTE_POSITION_NAME	= "position";
+static const char* VERTEX_SHADER_ATTRIBUTE_COLOR_NAME		= "color";
+static const char* VERTEX_SHADER_ATTRIBUTE_UV_NAME			= "uv";
+static const char* VERTEX_SHADER_ATTRIBUTE_NORMAL_NAME		= "normal";
