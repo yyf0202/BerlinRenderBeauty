@@ -18,9 +18,8 @@ namespace tester
 				material->SetShaderPath("./Resources/Shaders/texture");
 				obj->GetRenderer()->SetMaterial(material);
 				auto text = new Texture2D();
-				text->SetSize(204, 217);
 				text->SetFormat(GL_RGB);
-				text->Load("./Resources/Textures/testjpg.jpg");
+				text->Load("./Resources/Textures/test.png");
 				textRender->SetTexture(text);
 
 

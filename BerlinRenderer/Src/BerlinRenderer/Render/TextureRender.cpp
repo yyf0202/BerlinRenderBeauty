@@ -3,24 +3,31 @@
 #include <BerlinRenderer/Resources/Texture2D.h>
 #include <BerlinRenderer/Resources/Material.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 
+static GLfloat vertices[] = {
+	0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+	0.5f, -0.5f, 0.0f, 0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
+	-0.5f, -0.5f, 0.0f, 0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
+	-0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f,  1.0f, 0.0f
+};
+
+static GLuint indices[] = {
+	0, 1, 3,
+	1, 2, 3
+};
+
+static GLfloat uvs[] = {
+	0.0f, 0.0f,
+	1.0f, 0.0f,
+	0.0f, 1.0f,
+	1.0f, 1.0f,
+};
 
 TextureRender::TextureRender()
 {
-	static GLfloat vertices[] = {
-		0.5f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f
-	};
-
-	static GLuint indices[] = {
-		0, 1, 3,
-		1, 2, 3
-	};
-
 	glGenBuffers(1, &ebo_);
 	glGenBuffers(1, &vbo_);
 	glGenVertexArrays(1, &vao_);
@@ -33,8 +40,14 @@ TextureRender::TextureRender()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo_);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT);
+	glVertexAttribPointer(VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+
+	glVertexAttribPointer(VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT);
+
+	glEnableVertexAttribArray(VERTEX_SHADER_ATTRIBUTE_UV_LAYOUT);
+	glVertexAttribPointer(VERTEX_SHADER_ATTRIBUTE_UV_LAYOUT, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6*sizeof(float)));
 
 	glBindVertexArray(0);
 }

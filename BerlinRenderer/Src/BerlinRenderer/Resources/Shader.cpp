@@ -63,7 +63,6 @@ error_t Shader::_compile(string_t code, uint32_t type)
 	glCompileShader(shader_ids_[type]);
 	GLint compiled;
 	glGetShaderiv(shader_ids_[type], GL_COMPILE_STATUS, &compiled);
-	CHECK_OPENGL();
 
 	if (compiled == GL_FALSE)
 	{
@@ -90,6 +89,7 @@ error_t Shader::Compile(string_t vert_code, string_t frag_code)
 error_t Shader::Link()
 {
 	glLinkProgram(progamId_);
+	CHECK_OPENGL();
 
 	GLint linked;
 	glGetProgramiv(progamId_, GL_LINK_STATUS, &linked);

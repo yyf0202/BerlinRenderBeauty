@@ -32,6 +32,7 @@ void Material::SetShaderPath(string_t path)
 void Material::Use()
 {
 	shader_->Active();
+	//SetInt("mainTexture", 0);
 }
 
 void Material::SetBool(const std::string &name, bool value) const

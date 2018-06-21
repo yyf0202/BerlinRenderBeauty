@@ -13,8 +13,13 @@ public:
 
 	virtual void Load(string_t path) override;
 
+	inline int32_t GetWidth() { return width_; }
+	inline int32_t GetHeight() { return height_; }
+
 private:
 	byte_t * data_ = nullptr;
+	int32_t width_ = 0;
+	int32_t height_ = 0;
 };
 
 NS_RENDER_END

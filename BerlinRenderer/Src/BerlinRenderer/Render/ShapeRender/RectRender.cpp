@@ -8,10 +8,10 @@ NS_RENDER_BEGIN
 RectRender::RectRender()
 {
 	static GLfloat vertices[] = {
-		0.5f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f
+		0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f,
+		0.5f, -0.5f, 0.0f, 0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, 0.0f, 0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f
 	};
 
 	static GLuint indices[] = {
@@ -31,8 +31,11 @@ RectRender::RectRender()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo_);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(VERTEX_SHADER_ATTRIBUTE_POSITION_LAYOUT);
+
+	glVertexAttribPointer(VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(VERTEX_SHADER_ATTRIBUTE_COLOR_LAYOUT);
 
 	glBindVertexArray(0);
 }

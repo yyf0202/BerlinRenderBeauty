@@ -19,8 +19,11 @@ void Texture2D::Load(string_t name)
 	// TODO: error
 	if (img == nullptr) return;
 
+	//glActiveTexture(GL_TEXTURE0);
+
 	Bind();
-	SetData(img->GetData(), 0, 0, width_, height_);
+	UpdateParameters();
+	SetData(img->GetData(), 0, 0, img->GetWidth(), img->GetHeight());
 	glBindTexture(GL_TEXTURE_2D, 0);
 	CHECK_OPENGL();
 
@@ -31,14 +34,13 @@ error_t Texture2D::Bind()
 {
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, id_);
-	UpdateParameters();
 
 	return 0;
 }
 
 void Texture2D::SetData(byte_t* data, uint32_t of_x, uint32_t of_y, uint32_t width, uint32_t height)
 {
-	glTexImage2D(GL_TEXTURE_2D, 0, GetFormat(), (GLsizei)width_, (GLsizei)height_, 0, GetFormat()/* TODO */, GL_UNSIGNED_BYTE/* TODO */, data);
+	glTexImage2D(GL_TEXTURE_2D, 0, GetFormat(), (GLsizei)width, (GLsizei)height, 0, GetFormat()/* TODO */, GL_UNSIGNED_BYTE/* TODO */, data);
 }
 
 void Texture2D::SetSize(uint32_t width, uint32_t height)
@@ -68,8 +70,6 @@ error_t Texture2D::Init()
 	{
 		glGenTextures(1, &id_);
 	}
-
-	UpdateParameters();
 
 	return 0;
 }
