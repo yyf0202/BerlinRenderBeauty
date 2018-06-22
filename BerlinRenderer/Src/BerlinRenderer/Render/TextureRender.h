@@ -10,7 +10,7 @@ class RENDER_API TextureRender : public Renderer
 {
 public:
 	TextureRender();
-	void Draw() override;
+	virtual void Draw(Camera* camera) override;
 
 	void SetTexture(Texture2D* tex);
 	Texture2D* GetTexture() const { return tex_; }

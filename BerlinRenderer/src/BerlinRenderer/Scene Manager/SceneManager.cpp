@@ -5,6 +5,7 @@
 ///////////////////////////////////////////////////////////////////
 #include "SceneManager.h"
 #include <BerlinRenderer/Profiler/Profiler.h>
+#include <BerlinRenderer/Action/IActionManager.h>
 
 NS_RENDER_BEGIN
 
@@ -38,21 +39,31 @@ void SceneManager::DelSceneObject(SceneObjectPtr const & obj)
 void SceneManager::Update()
 {
 	PROFILE_FUNCTION();
+	for_each(iter, cameras_)
+	{
+		(*iter)->GetActionManager().OnUpdate();
+	}
+
 	for (auto iter = scene_objs_.begin(); iter != scene_objs_.end(); ++iter)
 	{
 		(*iter)->Update();
 	}
 }
 
-void SceneManager::AddCamera(CameraPtr const & camera)
+void SceneManager::AddCamera(Camera* camera)
 {
 	cameras_.push_back(camera);
 }
 
-void SceneManager::DelCamera(CameraPtr const & camera)
+void SceneManager::DelCamera(Camera* camera)
 {
 	auto iter = std::find(cameras_.begin(), cameras_.end(), camera);
 	cameras_.erase(iter);
+}
+
+const Camera& SceneManager::ActiveCamera()
+{
+	return *cameras_[0];
 }
 
 NS_RENDER_END

@@ -8,12 +8,12 @@
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 #include <BerlinRenderer/Render/Renderer.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
+#include <BerlinRenderer/Render/Camera.h>
 
 NS_RENDER_BEGIN
 
 RenderEngine::RenderEngine()
 {
-
 }
 
 RenderEngine::~RenderEngine()
@@ -32,11 +32,15 @@ void RenderEngine::Refresh()
 
 	for (auto iter = sm.GetSceneObjects().begin(); iter != sm.GetSceneObjects().end(); ++iter)
 	{
-		SceneObjectPtr ptr = (*iter);
+		for_each(itCamera, sm.GetCameras())
+		{
+			SceneObjectPtr ptr = (*iter);
 
-		if (ptr->GetRenderer()) {
-			ptr->GetRenderer()->Draw();
+			if (ptr->GetRenderer()) {
+				ptr->GetRenderer()->Draw(*itCamera);
+			}
 		}
+		
 	}
 }
 

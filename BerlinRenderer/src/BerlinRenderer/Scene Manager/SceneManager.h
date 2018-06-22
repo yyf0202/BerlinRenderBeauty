@@ -24,16 +24,17 @@ public:
 	void Update();
 
 
-	void AddCamera(CameraPtr const & camera);
-	void DelCamera(CameraPtr const & camera);
+	void AddCamera(Camera* camera);
+	void DelCamera(Camera* camera);
 
-	CameraPtr const & ActiveCamera();
+	const Camera& ActiveCamera();
 
-	vector_t<SceneObjectPtr>& GetSceneObjects() { return scene_objs_;	}
+	const vector_t<SceneObjectPtr>& GetSceneObjects() { return scene_objs_;	}
+	const vector_t<Camera*> GetCameras() { return cameras_; }
 
 private:
 	vector_t<SceneObjectPtr> scene_objs_;
-	vector_t<CameraPtr> cameras_;
+	vector_t<Camera* > cameras_;
 };
 
 NS_RENDER_END

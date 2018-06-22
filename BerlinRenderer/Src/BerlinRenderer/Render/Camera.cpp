@@ -6,17 +6,17 @@
 
 #include "Camera.h"
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
+#include <BerlinRenderer/Action/SeqActionManager.h>
 
 NS_RENDER_BEGIN
 
 Camera::Camera()
 {
-
+	actionManager_ = new SeqActionManager();
 }
 
 Camera::~Camera()
 {
-
 }
 
 void Camera::SetProjectionParams(float_t fov, float_t aspect, float_t nearZ, float_t farZ)
@@ -34,12 +34,13 @@ void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos)
 	SetViewParams(cameraPos, lookatPos, vec3_t(0, 1, 0));
 }
 
-void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec3_t const& upVec) {
+void Camera::SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec3_t const& upVec)
+{
 	this->pos_ = cameraPos;
 	this->target_pos_ = lookatPos;
 	this->forward_ = glm::normalize(lookatPos - cameraPos);
 	this->right_ = glm::normalize(glm::cross(this->forward_, upVec));
-	this->up_ = glm::normalize(glm::cross(this->right_, this->up_));
+	this->up_ = glm::normalize(glm::cross(this->right_, this->forward_));
 
 	this->UpdateViewProjMatri();
 }
@@ -64,12 +65,12 @@ void Camera::LookAt(vec3_t const& lookatPos)
 
 void Camera::AddToSceneManager()
 {
-	Context::GetInstance().SceneManagerInstance().AddCamera(this->shared_from_this());
+	SceneMgr().AddCamera(this);
 }
 
 void Camera::DelFromSceneManager()
 {
-	Context::GetInstance().SceneManagerInstance().DelCamera(this->shared_from_this());
+	SceneMgr().DelCamera(this);
 }
 
 NS_RENDER_END

@@ -10,6 +10,8 @@
 
 NS_RENDER_BEGIN
 
+class Camera;
+
 class RENDER_API RenderEngine : Noncopyable
 {
 public:

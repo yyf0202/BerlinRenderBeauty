@@ -10,6 +10,8 @@
 
 NS_RENDER_BEGIN
 
+class IActionManager;
+
 class RENDER_API Camera : Noncopyable, public std::enable_shared_from_this<Camera>
 {
 public:
@@ -19,11 +21,11 @@ public:
 	void SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos);
 	void SetViewParams(vec3_t const& cameraPos, vec3_t const& lookatPos, vec3_t const& upVec);
 	void SetCameraPos(vec3_t const& cameraPos);
+	const vec3_t GetCameraPos() { return pos_; }
 	void LookAt(vec3_t const& lookatPos);
 
 	void AddToSceneManager();
 	void DelFromSceneManager();
-
 
 	inline mat4_t const& GetViewMatrix() { return view_matrix_;	}
 	inline mat4_t const& GetProjectionMatrix() { return project_matrix_; }
@@ -35,6 +37,8 @@ public:
 	inline vec3_t const& Forward() { return forward_; }
 	inline vec3_t const& Right() { return right_; }
 	inline vec3_t const& Up() { return up_; }
+
+	inline IActionManager& GetActionManager() { return *actionManager_; }
 
 private:
 	vec3_t pos_;
@@ -49,6 +53,8 @@ private:
 	float_t fov_;
 	float_t near_z_;
 	float_t far_z_;
+
+	IActionManager* actionManager_ = nullptr;
 
 	void UpdateViewProjMatri();
 };

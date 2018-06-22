@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Src\BerlinRenderer\Action\SeqActionManager.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\App\App.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\Context.cpp" />
     <ClCompile Include="..\..\..\src\BerlinRenderer\Base\glad.c" />
@@ -169,6 +170,10 @@
     <ClCompile Include="..\..\..\Src\BerlinRenderer\Utils\StringUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Action\Action.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Action\SeqActionManager.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Action\IAction.h" />
+    <ClInclude Include="..\..\..\Src\BerlinRenderer\Action\IActionManager.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\App\App.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Config.h" />
     <ClInclude Include="..\..\..\src\BerlinRenderer\Base\Context.h" />

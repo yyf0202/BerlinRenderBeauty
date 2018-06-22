@@ -161,6 +161,8 @@ void App::Run()
 			std::this_thread::sleep_for(std::chrono::milliseconds(frameTime_ - milli));
 			deltaTime_ = frameTime_;
 		}
+
+		Context::GetInstance().SetDeltaTime(deltaTime_);
 	}
 
 	glfwTerminate();

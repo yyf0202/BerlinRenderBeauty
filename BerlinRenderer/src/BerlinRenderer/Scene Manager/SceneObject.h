@@ -12,6 +12,7 @@
 NS_RENDER_BEGIN
 
 class Renderer;
+class IActionManager;
 
 class SceneObject : Noncopyable, public std::enable_shared_from_this<SceneObject>
 {
@@ -22,6 +23,9 @@ public:
 	void AddToSceneManager();
 	void DelFromSceneManager();
 
+	void SetPosition(vec3_t& pos);
+	const vec3_t& GetPostion() { return pos_; }
+
 	inline void SetObjectID(uint32_t id) { object_id_ = id; }
 
 	inline SceneObject* Parent() const { return parent_; }
@@ -30,7 +34,7 @@ public:
 	inline const shared_ptr_t<SceneObject> & Child(uint32_t index) const { return children_[index]; }
 
 	//RenderablePtr const & GetRenderable() const;
-	inline Mesh const & GetMeshData() const { return mesh_data_; }
+	//inline Mesh const & GetMeshData() const { return mesh_data_; }
 
 	inline void SetLocalMatrix(mat4_t const& localMatrix) { local_matrix_ = localMatrix; }
 	inline const mat4_t& GetLocalMatrix() const { return local_matrix_; }
@@ -41,19 +45,23 @@ public:
 	void Update();
 
 	inline Renderer* GetRenderer() { return renderer_;	}
-	inline void SetRender(Renderer* renderer) { renderer_ = renderer; }
-	inline void Set(Mesh mesh) { mesh_data_ = mesh; }
+	void SetRender(Renderer* renderer);
+	//inline void Set(Mesh mesh) { mesh_data_ = mesh; }
+	inline IActionManager& GetActionManager() { return *actionManager_; }
 
 protected:
 	SceneObject * parent_;
 	vector_t<shared_ptr_t<SceneObject>> children_;
 	//RenderablePtr renderable_;
-	Mesh mesh_data_;
-	uint32_t object_id_;
+	//Mesh mesh_data_;
+	uint32_t object_id_ = 0;
 	mat4_t local_matrix_;
 	mat4_t abs_matrix_;
 	void UpdateWorldMatrix();
-	Renderer* renderer_;
+	Renderer* renderer_ = nullptr;
+	vec3_t pos_;
+	bool_t dirtyLocalMat_ = false;
+	IActionManager* actionManager_ = nullptr;
 };
 
 typedef shared_ptr_t<SceneObject> SceneObjectPtr;

@@ -22,7 +22,7 @@ Renderer::~Renderer()
 
 }
 
-void Renderer::Draw()
+void Renderer::Draw(Camera* camera)
 {
 	//if (object_ == NULL) {
 	//	if (object_ == NULL) {

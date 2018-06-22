@@ -10,7 +10,7 @@ class MeshRender: public Renderer
 {
 public:
 
-	virtual void Draw() override;
+	virtual void Draw(Camera* camera) override;
 };
 
 NS_RENDER_END

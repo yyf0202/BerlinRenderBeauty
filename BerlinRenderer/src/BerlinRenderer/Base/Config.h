@@ -96,3 +96,7 @@ static const char* VERTEX_SHADER_ATTRIBUTE_POSITION_NAME	= "position";
 static const char* VERTEX_SHADER_ATTRIBUTE_COLOR_NAME		= "color";
 static const char* VERTEX_SHADER_ATTRIBUTE_UV_NAME			= "uv";
 static const char* VERTEX_SHADER_ATTRIBUTE_NORMAL_NAME		= "normal";
+
+static const char* MODEL_MATRIX								= "model";
+static const char* VIEW_MATRIX								= "view";
+static const char* PROJECTION_MATRIX						= "projection";

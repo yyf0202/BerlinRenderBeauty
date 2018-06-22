@@ -10,7 +10,7 @@ class RectRender : public Renderer
 public:
 	RectRender();
 
-	virtual void Draw() override;
+	virtual void Draw(Camera* camera) override;
 
 private:
 	GLuint vao_ = 0;

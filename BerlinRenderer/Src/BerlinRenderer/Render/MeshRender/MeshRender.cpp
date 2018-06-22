@@ -3,7 +3,7 @@
 
 NS_RENDER_BEGIN
 
-void MeshRender::Draw()
+void MeshRender::Draw(Camera* camera)
 {
 
 }

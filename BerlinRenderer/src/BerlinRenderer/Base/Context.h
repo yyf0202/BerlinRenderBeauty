@@ -44,8 +44,11 @@ public:
 	inline LoggerManager& LoggerManagerInstance() { return *logger_manager_instance_; }
 	inline bool_t IsMainThread() { return mainThreadId_ == std::this_thread::get_id(); }
 
+	inline float_t GetDeltaTime() { return deltaTime_; }
+
 protected:
 	void SetAppInstance(App* app) { app_ = app; }
+	inline void SetDeltaTime(float_t value) { deltaTime_ = value; }
 
 private:
 
@@ -57,6 +60,7 @@ private:
 	LoggerManager* logger_manager_instance_ = nullptr;
 
 	std::thread::id mainThreadId_;
+	float_t deltaTime_ = 0;
 
 	friend App;
 };

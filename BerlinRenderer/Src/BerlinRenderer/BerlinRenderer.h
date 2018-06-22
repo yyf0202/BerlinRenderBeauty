@@ -30,3 +30,8 @@
 #include <BerlinRenderer/Render/Camera.h>
 #include <BerlinRenderer/Render/TextureRender.h>
 #include <BerlinRenderer/Render/ShapeRender/RectRender.h>
+
+#include <BerlinRenderer/Action/IAction.h>
+#include <BerlinRenderer/Action/Action.h>
+#include <BerlinRenderer/Action/IActionManager.h>
+#include <BerlinRenderer/Action/SeqActionManager.h>

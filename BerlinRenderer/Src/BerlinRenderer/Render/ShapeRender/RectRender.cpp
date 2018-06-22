@@ -40,7 +40,7 @@ RectRender::RectRender()
 	glBindVertexArray(0);
 }
 
-void RectRender::Draw()
+void RectRender::Draw(Camera* camera)
 {
 	PROFILE_FUNCTION();
 

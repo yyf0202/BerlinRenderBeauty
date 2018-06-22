@@ -9,20 +9,29 @@
 #include <BerlinRenderer/Scene Manager/SceneManager.h>
 //#include <BerlinRenderer/Render/Renderer.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
+#include <BerlinRenderer/Render/Renderer.h>
+#include <BerlinRenderer/Action/SeqActionManager.h>
 
 NS_RENDER_BEGIN
 
 SceneObject::SceneObject()
+	: local_matrix_(1.0f)
+	, abs_matrix_(1.0f)
+	, pos_(0)
 {
-	local_matrix_ = mat4_t(1.0f);
-	abs_matrix_ = mat4_t(1.0f);
-	//renderer_ = new Renderer(this);
+	actionManager_ = new SeqActionManager();
 }
 
 SceneObject::~SceneObject()
 {
-
 }
+
+void SceneObject::SetPosition(vec3_t& pos)
+{
+	pos_ = pos;
+	dirtyLocalMat_ = true;
+}
+
 
 void SceneObject::AddToSceneManager()
 {
@@ -48,6 +57,12 @@ void SceneObject::UpdateWorldMatrix()
 {
 	PROFILE_FUNCTION();
 
+	if (dirtyLocalMat_)
+	{
+		local_matrix_ = glm::translate(local_matrix_, pos_);
+		dirtyLocalMat_ = false;
+	}
+
 	if (parent_) {
 		abs_matrix_ = parent_->GetLocalMatrix() * local_matrix_;
 	}
@@ -59,7 +74,15 @@ void SceneObject::UpdateWorldMatrix()
 void SceneObject::Update() {
 	PROFILE_FUNCTION();
 
+	actionManager_->OnUpdate();
+
 	UpdateWorldMatrix();
+}
+
+void SceneObject::SetRender(Renderer* renderer)
+{
+	renderer_ = renderer;
+	renderer_->SetObject(this);
 }
 
 //RenderablePtr const & SceneObject::GetRenderable() const

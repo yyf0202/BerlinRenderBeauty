@@ -4,6 +4,9 @@
 #include <BerlinRenderer/Resources/Material.h>
 #include <BerlinRenderer/Profiler/Profiler.h>
 #include <BerlinRenderer/IO/LoggerManager.h>
+#include "Camera.h"
+#include <BerlinRenderer/Scene Manager/SceneObject.h>
+#include <BerlinRenderer/IO/LoggerManager.h>
 
 NS_RENDER_BEGIN
 
@@ -52,7 +55,7 @@ TextureRender::TextureRender()
 	glBindVertexArray(0);
 }
 
-void TextureRender::Draw()
+void TextureRender::Draw(Camera* camera)
 {
 	PROFILE_FUNCTION();
 
@@ -60,12 +63,13 @@ void TextureRender::Draw()
 
 	glActiveTexture(GL_TEXTURE0);
 
-	//mat_->SetMat4(MODEL_MATRIX, object_->GetWorldMatrix());
-	//mat_->SetMat4(VIEW_MATRIX, camera->GetViewMatrix());
-	//mat_->SetMat4(PROJECTION_MATRIX, camera->GetProjectionMatrix());
-
 	tex_->Bind();
 	GetMaterial()->Use();
+
+	mat_->SetMat4(MODEL_MATRIX, object_->GetWorldMatrix());
+	mat_->SetMat4(VIEW_MATRIX, camera->GetViewMatrix());
+	mat_->SetMat4(PROJECTION_MATRIX, camera->GetProjectionMatrix());
+	CHECK_OPENGL();
 
 	glBindVertexArray(vao_);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
